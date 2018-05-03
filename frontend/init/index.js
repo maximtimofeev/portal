@@ -1,1 +1,2 @@
-import css from './index.css'
+import 'reset-css'
+import './index.sass'

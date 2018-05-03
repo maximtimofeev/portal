@@ -7,5 +7,7 @@ html
     = stylesheet_pack_tag 'application'
     = javascript_pack_tag 'application'
   body
-    = react_component('header')
-    = yield
+    = react_component('header', {}, :header)
+    main
+      = yield
+    = react_component('footer', {}, :footer)
