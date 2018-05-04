@@ -5,8 +5,26 @@ body
   grid-template-columns: repeat(12, 1fr)
   grid-template-rows: 50px 1fr 50px
   height: 100%
+  background: black
 
-  header, footer
-    grid-column-start: 1
-    grid-column-end: 13
+  main
+    background: rgba(0, 0, 0, 0.05)
+
+  footer
     background: green
+
+  header, main, footer
+    grid-column-start: 3
+    grid-column-end: 11
+
+
+    @media (max-width: 1200px)
+      grid-column-start: 2
+      grid-column-end: 12
+
+    @media (max-width: 768px)
+      grid-column-start: 1
+      grid-column-end: 13
+ul, ol, nav
+  li
+    list-style-type: none
