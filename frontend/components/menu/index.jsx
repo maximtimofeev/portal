@@ -9,8 +9,8 @@ class Menu extends React.Component {
     return (
       <React.Fragment>
       <nav className={css(styles.topMenu)}>
-        <MenuItem name='Home' link='/'>
-        </MenuItem>
+        <MenuItem name='Home' link='/'></MenuItem>
+        <MenuItem name='Profile' link='#'></MenuItem>
       </nav>
       </React.Fragment>
     );
