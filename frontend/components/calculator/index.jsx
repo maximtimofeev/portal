@@ -15,9 +15,11 @@ class Calculator extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <TalentTree class="this.state.class" spec='1'></TalentTree>
-        <TalentTree class="this.state.class" spec='2'></TalentTree>
-        <TalentTree class="this.state.class" spec='3'></TalentTree>
+        <div className={css(styles.calculator)}>
+          <TalentTree class={this.state.class} spec='1'></TalentTree>
+          <TalentTree class={this.state.class} spec='2'></TalentTree>
+          <TalentTree class={this.state.class} spec='3'></TalentTree>
+        </div>
       </React.Fragment>
     );
   }
