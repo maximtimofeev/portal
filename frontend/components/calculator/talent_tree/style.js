@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: '246px',
-    height: '624px'
+    height: '624px',
+    backgroundPositionY: '-392px'
   }
 });
