@@ -5,8 +5,8 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '246px',
-    height: '624px',
-    backgroundPositionY: '-392px'
+    width: '300px',
+    height: '750px',
+    backgroundSize: 'cover'
   }
 });
