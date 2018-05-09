@@ -1,11 +1,21 @@
 {
-  "arms": {
-    "1": {
+  "arms": [
+    {
       "name": "Improved Heroic Strike",
       "posX": "0",
       "posY": "0"
+    },
+    {
+      "name": "Deflection",
+      "posX": "56px",
+      "posY": "0"
+    },
+    {
+      "name": "Improved Rend",
+      "posX": "112px",
+      "posY": "0"
     }
-  },
+  ],
   "fury": "",
   "prot": ""
 }

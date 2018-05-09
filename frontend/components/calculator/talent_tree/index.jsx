@@ -16,15 +16,13 @@ class TalentTree extends React.Component {
     var treeStyle = {
       backgroundImage: `url('${background}')`,
       backgroundRepaet: 'no-repeat'
-    }
+    };
+    var talents = () => this.config.arms.map((talentConfig, i) => <Talent key={i} sprite={classSprite} x={talentConfig.posX} y={talentConfig.posY}/>);
 
     return (
       <React.Fragment>
         <div className={css(styles.tree)} style={treeStyle}>
-          <Talent sprite={classSprite} x='0' y='0'>
-          </Talent>
-           <Talent sprite={classSprite} x='-56px' y='0'>
-          </Talent>
+          {talents()}
         </div>
       </React.Fragment>
     );

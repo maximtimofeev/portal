@@ -12,11 +12,18 @@ class Talent extends React.Component {
       y: this.props.y,
     }
   }
+  componentWillReceiveProps(props) {
+    this.setState({
+      sprite: props.sprite,
+      x: props.x,
+      y: props.y,
+    });
+  }
   render () {
     var talentStyle = {
       backgroundImage: `url('${this.state.sprite}')`,
-      backgroundPositionX: this.state.x,
-      backgroundPositionY: this.state.y
+      backgroundPositionX: `-${this.state.x}`,
+      backgroundPositionY: `-${this.state.y}`
     }
 
     return (
