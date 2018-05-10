@@ -4,6 +4,7 @@ export default StyleSheet.create({
   topMenu: {
     display: 'flex',
     height: '100%',
-    padding: '3px 0'
+    padding: '3px 0',
+    boxSizing: 'border-box'
   }
 });

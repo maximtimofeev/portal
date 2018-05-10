@@ -13,13 +13,17 @@ export default StyleSheet.create({
     height: '44px',
     position: 'absolute',
     top: '6px',
-    left: '5px'
+    left: '5px',
+    backgroundColor: '#000000'
   },
   talentBorder: {
     width: '53px',
     height: '53px',
     position: 'absolute',
-    backgroundImage: `url(${background})`
+    backgroundImage: `url(${background})`,
+
+    ":hover": {
+    }
   },
   talentPicked: {
     backgroundPosition: '-53px 0'
