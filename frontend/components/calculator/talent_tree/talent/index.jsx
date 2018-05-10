@@ -10,6 +10,7 @@ class Talent extends React.Component {
       sprite: this.props.sprite,
       x: this.props.x,
       y: this.props.y,
+      gridX: this.props.gridX
     }
   }
   componentWillReceiveProps(props) {
@@ -17,19 +18,25 @@ class Talent extends React.Component {
       sprite: props.sprite,
       x: props.x,
       y: props.y,
+      gridX: this.props.gridX
     });
   }
   render () {
+    var talentContainerStyle = {
+      gridColumnStart: this.state.gridX
+    }
     var talentStyle = {
       backgroundImage: `url('${this.state.sprite}')`,
-      backgroundPositionX: `-${this.state.x}`,
-      backgroundPositionY: `-${this.state.y}`
+      backgroundPositionX: `-${this.state.x * 44}px`,
+      backgroundPositionY: `-${this.state.y * 44}px`,
     }
 
     return (
       <React.Fragment>
-        <div className={css(styles.talentContainer)}>
+        <div className={css(styles.talentContainer)} style={talentContainerStyle}>
           <div className={css(styles.talent)} style={talentStyle}>
+          </div>
+          <div className={css(styles.talentBorder)}>
           </div>
         </div>
       </React.Fragment>

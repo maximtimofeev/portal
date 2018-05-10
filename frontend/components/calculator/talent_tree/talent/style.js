@@ -3,16 +3,28 @@ import background from '../img/border.png'
 
 export default StyleSheet.create({
   talentContainer: {
-    width: '62px',
-    height: '62px',
+    width: '53px',
+    height: '53px',
     position: 'relative',
-    backgroundImage: `url(${background})`
+    cursor: 'pointer'
   },
   talent: {
-    width: '56px',
-    height: '56px',
+    width: '44px',
+    height: '44px',
     position: 'absolute',
-    top: '3px',
-    left: '3px'
+    top: '6px',
+    left: '5px'
+  },
+  talentBorder: {
+    width: '53px',
+    height: '53px',
+    position: 'absolute',
+    backgroundImage: `url(${background})`
+  },
+  talentPicked: {
+    backgroundPosition: '-53px 0'
+  },
+  talentUpgraded: {
+    backgroundPosition: '-106px 0'
   }
 });

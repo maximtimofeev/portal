@@ -8,6 +8,9 @@ class TalentTree extends React.Component {
   constructor(props) {
     super(props);
     this.config = require(`./config/${this.props.class}.json`);
+    this.state = {
+      spec: this.props.spec
+    }
   }
   render () {
     var classSprite = require(`./img/${this.props.class}.png`)
@@ -17,7 +20,9 @@ class TalentTree extends React.Component {
       backgroundImage: `url('${background}')`,
       backgroundRepaet: 'no-repeat'
     };
-    var talents = () => this.config.arms.map((talentConfig, i) => <Talent key={i} sprite={classSprite} x={talentConfig.posX} y={talentConfig.posY}/>);
+    var talents = () => this.config[`${this.state.spec}`].map(
+      (talentConfig, i) => <Talent key={i} sprite={classSprite} x={talentConfig.posX} y={talentConfig.posY} gridX={talentConfig.gridX}/>
+      );
 
     return (
       <React.Fragment>
