@@ -1,10 +1,9 @@
 import { StyleSheet } from 'aphrodite/no-important';
 
 export default StyleSheet.create({
-  topMenu: {
+  calculator: {
     display: 'flex',
-    height: '100%',
-    padding: '3px 0',
-    boxSizing: 'border-box'
+    flexDirection: 'row',
+    justifyContent: 'center',
   }
 });

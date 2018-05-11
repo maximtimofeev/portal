@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import { css } from 'aphrodite/no-important'
 import styles from './style'
 
-class Footer extends React.Component {
+class Description extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <div></div>
+        <div className={css(styles.description)}>talent description</div>
       </React.Fragment>
     );
   }
 }
 
-export default Footer
+export default Description
