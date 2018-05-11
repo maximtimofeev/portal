@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { css } from 'aphrodite/no-important'
 import styles from './style'
-import Talent from './talent'
+import Talent from './talent/Talent'
 
 class TalentTree extends React.Component {
   constructor(props) {

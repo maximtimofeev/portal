@@ -8,6 +8,7 @@ export default StyleSheet.create({
     width: '100px',
     height: '50px',
     color: '#ffffff',
-    background: '#000000'
+    background: '#000000',
+    zIndex: '10'
   }
 });

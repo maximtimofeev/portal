@@ -12,10 +12,12 @@ class Talent extends React.Component {
       x: this.props.x,
       y: this.props.y,
       gridX: this.props.gridX,
-      descActive: false
+      descActive: false,
+      description: <Description></Description>
     }
     this.renderDescription = this.renderDescription.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({
@@ -31,22 +33,27 @@ class Talent extends React.Component {
       descActive: true
     });
   }
+  handleMouseLeave () {
+    this.setState({
+      descActive: false
+    });
+  }
   renderDescription () {
-    return (this.state.descActive ? <Description></Description> : '');
+    return (this.state.descActive ? this.state.description : null);
   }
   render () {
     const talentSideLength = 44;
-    var talentContainerStyle = {
+    let talentContainerStyle = {
       gridColumnStart: this.state.gridX
     }
-    var talentStyle = {
+    let talentStyle = {
       backgroundImage: `url('${this.state.sprite}')`,
       backgroundPositionX: `-${this.state.x * talentSideLength}px`,
       backgroundPositionY: `-${this.state.y * talentSideLength}px`,
     }
     return (
       <React.Fragment>
-        <div className={css(styles.talentContainer)} style={talentContainerStyle} onMouseEnter={this.handleMouseEnter}>
+        <div className={css(styles.talentContainer)} style={talentContainerStyle} onMouseEnter={this.handleMouseEnter}  onMouseLeave={this.handleMouseLeave}>
           <div className={css(styles.talent)} style={talentStyle}>
           </div>
           <div className={css(styles.talentBorder)}>
