@@ -9,15 +9,18 @@ class Talent extends React.Component {
     super(props);
     this.state = {
       sprite: this.props.sprite,
-      x: this.props.x,
-      y: this.props.y,
-      gridX: this.props.gridX,
+      x: this.props.config.posX,
+      y: this.props.config.posY,
+      gridX: this.props.config.gridX,
       descActive: false,
-      description: <Description></Description>
+      points: 0,
+      description: <Description config={this.props.config}></Description>,
+      availability: this.props.config.tier == 1,
     }
     this.renderDescription = this.renderDescription.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleCLick = this.handleCLick.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({
@@ -38,6 +41,13 @@ class Talent extends React.Component {
       descActive: false
     });
   }
+  handleCLick (e) {
+    if (e.type === 'click') {
+      console.log('Left click');
+    } else if (e.type === 'contextmenu') {
+      console.log('Right click');
+    }
+  }
   renderDescription () {
     return (this.state.descActive ? this.state.description : null);
   }
@@ -51,10 +61,19 @@ class Talent extends React.Component {
       backgroundPositionX: `-${this.state.x * talentSideLength}px`,
       backgroundPositionY: `-${this.state.y * talentSideLength}px`,
     }
+    let talentClass = css(
+        styles.talent,
+        this.state.availability ? styles.active : null
+      )
     return (
       <React.Fragment>
-        <div className={css(styles.talentContainer)} style={talentContainerStyle} onMouseEnter={this.handleMouseEnter}  onMouseLeave={this.handleMouseLeave}>
-          <div className={css(styles.talent)} style={talentStyle}>
+        <div className={css(styles.talentContainer)}
+             style={talentContainerStyle}
+             onMouseEnter={this.handleMouseEnter} 
+             onMouseLeave={this.handleMouseLeave}
+             onClick={this.handleClick}
+             onContextMenu={this.handleClick}>
+          <div className={talentClass} style={talentStyle}>
           </div>
           <div className={css(styles.talentBorder)}>
           </div>

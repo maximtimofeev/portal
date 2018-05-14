@@ -14,7 +14,8 @@ export default StyleSheet.create({
     position: 'absolute',
     top: '6px',
     left: '5px',
-    backgroundColor: '#000000'
+    backgroundColor: '#000000',
+    filter: 'grayscale(100%)'
   },
   talentBorder: {
     width: '53px',
@@ -25,10 +26,13 @@ export default StyleSheet.create({
     ":hover": {
     }
   },
-  talentPicked: {
-    backgroundPosition: '-53px 0'
+  talentAvailable: {
+    backgroundPosition: '-53px 0',
   },
-  talentUpgraded: {
-    backgroundPosition: '-106px 0'
+  talentPicked: {
+    backgroundPosition: '-106px 0',
+  },
+  active: {
+    filter: 'none'
   }
 });

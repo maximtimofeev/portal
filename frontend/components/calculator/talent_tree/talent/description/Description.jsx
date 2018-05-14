@@ -4,10 +4,21 @@ import { css } from 'aphrodite/no-important'
 import styles from './style'
 
 class Description extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      name: this.props.config.name,
+      capacity: this.props.config.capacity,
+      points: 0
+    }
+  }
   render () {
     return (
       <React.Fragment>
-        <div className={css(styles.description)}>talent description</div>
+        <div className={css(styles.description)}>
+          <div className={css(styles.talentName)}>{this.state.name}</div>
+          <div>Rank {this.state.points}/{this.state.capacity}</div>
+        </div>
       </React.Fragment>
     );
   }

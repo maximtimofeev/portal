@@ -21,7 +21,10 @@ class TalentTree extends React.Component {
       backgroundRepaet: 'no-repeat'
     };
     var talents = () => this.config[`${this.state.spec}`].map(
-      (talentConfig, i) => <Talent key={i} sprite={classSprite} x={talentConfig.posX} y={talentConfig.posY} gridX={talentConfig.gridX}/>
+      (talentConfig, i) => <Talent
+        key={i}
+        config={talentConfig}
+        sprite={classSprite}/>
       );
 
     return (
