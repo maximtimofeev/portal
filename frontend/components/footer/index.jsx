@@ -7,7 +7,7 @@ class Footer extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h2>Hello, i am the footer</h2>
+      <div></div>
       </React.Fragment>
     );
   }
