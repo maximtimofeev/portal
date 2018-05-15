@@ -13,14 +13,14 @@ class Talent extends React.Component {
       y: this.props.config.posY,
       gridX: this.props.config.gridX,
       descActive: false,
+      capacity: this.props.config.capacity,
       points: 0,
-      description: <Description config={this.props.config}></Description>,
       availability: this.props.config.tier == 1,
     }
     this.renderDescription = this.renderDescription.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleCLick = this.handleCLick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({
@@ -41,15 +41,18 @@ class Talent extends React.Component {
       descActive: false
     });
   }
-  handleCLick (e) {
-    if (e.type === 'click') {
-      console.log('Left click');
+  handleClick (e) {
+    if ((e.type === 'click') && (this.state.points < this.state.capacity)) {
+      this.setState({points: this.state.points + 1})
     } else if (e.type === 'contextmenu') {
-      console.log('Right click');
+      e.preventDefault();
+      if (this.state.points > 0) {
+        this.setState({points: this.state.points - 1})
+      }
     }
   }
   renderDescription () {
-    return (this.state.descActive ? this.state.description : null);
+    return (this.state.descActive ? <Description config={this.props.config} points={this.state.points}></Description> : null);
   }
   render () {
     const talentSideLength = 44;

@@ -7,20 +7,24 @@ import Talent from './talent/Talent'
 class TalentTree extends React.Component {
   constructor(props) {
     super(props);
+    const talentOriginalRows = 7;
+
     this.config = require(`./config/${this.props.class}.json`);
     this.state = {
-      spec: this.props.spec
+      spec: this.props.spec,
+      gridRows: talentOriginalRows + this.props.type * 2
     }
   }
   render () {
     var classSprite = require(`./img/${this.props.class}.png`)
     var background = require(`./img/${this.props.class}_${this.props.spec}.jpg`)
 
-    var treeStyle = {
+    let treeStyle = {
       backgroundImage: `url('${background}')`,
-      backgroundRepaet: 'no-repeat'
+      backgroundRepaet: 'no-repeat',
+      gridTemplateRows: `repeat(${this.state.gridRows}, 1fr)`
     };
-    var talents = () => this.config[`${this.state.spec}`].map(
+    let talents = () => this.config[`${this.state.spec}`].map(
       (talentConfig, i) => <Talent
         key={i}
         config={talentConfig}

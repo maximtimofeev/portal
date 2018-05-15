@@ -7,18 +7,17 @@ class Calculator extends React.Component {
   constructor () {
     super();
     this.state = {
-      class: 'warrior'
+      class: 'warrior',
+      type: '1'
     };
-    this.changeClass = this.changeClass.bind(this)
   }
-  changeClass () {}
   render () {
     return (
       <React.Fragment>
         <div className={css(styles.calculator)}>
-          <TalentTree class={this.state.class} spec='1'></TalentTree>
-          <TalentTree class={this.state.class} spec='2'></TalentTree>
-          <TalentTree class={this.state.class} spec='3'></TalentTree>
+          <TalentTree class={this.state.class} spec='1' type={this.state.type}></TalentTree>
+          <TalentTree class={this.state.class} spec='2' type={this.state.type}></TalentTree>
+          <TalentTree class={this.state.class} spec='3' type={this.state.type}></TalentTree>
         </div>
       </React.Fragment>
     );

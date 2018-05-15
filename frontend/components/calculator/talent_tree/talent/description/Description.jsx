@@ -9,8 +9,13 @@ class Description extends React.Component {
     this.state = {
       name: this.props.config.name,
       capacity: this.props.config.capacity,
-      points: 0
+      points: this.props.points
     }
+  }
+  componentWillReceiveProps(props) {
+    this.setState({
+      points: props.points
+    });
   }
   render () {
     return (
