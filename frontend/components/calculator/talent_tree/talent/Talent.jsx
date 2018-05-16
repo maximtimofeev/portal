@@ -15,7 +15,7 @@ class Talent extends React.Component {
       descActive: false,
       capacity: this.props.config.capacity,
       points: 0,
-      availability: this.props.config.tier == 1,
+      availability: this.props.treePoints >= (this.props.config.tier - 1) * 5
     }
   }
   componentWillReceiveProps(props) {
@@ -24,6 +24,7 @@ class Talent extends React.Component {
       x: props.config.posX,
       y: props.config.posY,
       gridX: props.config.gridX,
+      availability: props.treePoints >= (props.config.tier - 1) * 5
     });
   }
   handleMouseEnter = () => {
@@ -39,17 +40,19 @@ class Talent extends React.Component {
 
   handleClick = (e) => {
     const talentPickable = (
-        (this.state.points < this.state.capacity) && (this.props.talentCount > 0)
+        (this.state.points < this.state.capacity)
+        && (this.props.talentCount > 0)
+        && (this.state.availability)
       )
     if ((e.type === 'click') && talentPickable) {
       this.setState({points: this.state.points + 1});
-      this.props.treePoints(1);
+      this.props.handleTreePoints(1);
       this.props.handleCalculatorPoints(-1);
     } else if (e.type === 'contextmenu') {
       e.preventDefault();
       if (this.state.points > 0) {
         this.setState({points: this.state.points - 1});
-        this.props.treePoints(-1);
+        this.props.handleTreePoints(-1);
         this.props.handleCalculatorPoints(1);
       }
     }
