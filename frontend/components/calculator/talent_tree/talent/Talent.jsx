@@ -66,6 +66,17 @@ class Talent extends React.Component {
         styles.talent,
         this.state.availability ? styles.active : null
       )
+    let talentAvailable = () => {
+      return (this.state.points >= 0 && this.state.availability) && (this.state.points < this.state.capacity)
+    }
+    let talentPicked = () => {
+      return (this.state.points == this.state.capacity)
+    }
+    const talentBorderClasses = css(
+        styles.talentBorder,
+        talentAvailable() && styles.talentAvailable,
+        talentPicked() && styles.talentPicked
+      )
     return (
       <React.Fragment>
         <div className={css(styles.talentContainer)}
@@ -76,7 +87,7 @@ class Talent extends React.Component {
              onContextMenu={this.handleClick}>
           <div className={talentClass} style={talentStyle}>
           </div>
-          <div className={css(styles.talentBorder)}>
+          <div className={talentBorderClasses}>
           </div>
           {this.renderDescription()}
         </div>

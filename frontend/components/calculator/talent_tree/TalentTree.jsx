@@ -18,17 +18,7 @@ class TalentTree extends React.Component {
   }
 
   handleTreePoints = (val) => {
-    console.log(val);
     this.setState({treePoints: this.state.treePoints + val})
-  }
-
-  increment = () => {
-    console.log(1)
-    this.setState({treePoints: this.state.treePoints + 1})
-  }
-
-  decrement = () => {
-    this.setState({treePoints: this.state.treePoints - 1})
   }
 
   render () {
@@ -45,8 +35,6 @@ class TalentTree extends React.Component {
         key={i}
         config={talentConfig}
         sprite={classSprite}
-        increment={this.increment}
-        decrement={this.decrement}
         treePoints={this.handleTreePoints}/>
       );
 
