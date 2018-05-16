@@ -9,16 +9,32 @@ class Calculator extends React.Component {
     this.state = {
       class: 'warrior',
       type: '1',
-      pointsAll: 61
+      pointsAvailable: 61,
+      pointsCapacity: 61
     };
   }
+  handlePoints = (val) => {
+    this.setState({pointsAvailable: this.pointsAvailable + val})
+  }
   render () {
+    let trees = () => {
+      let talentTrees = [];
+      for (let i = 1; i <= 3; i++) {
+        talentTrees.push(
+          <TalentTree
+            key={i}
+            class={this.state.class}
+            spec={i}
+            type={this.state.type}
+            maxTalent={this.state.pointsCapacity}
+            talentCount={this.state.pointsAvailable}/>)
+      }
+      return talentTrees;
+    }
     return (
       <React.Fragment>
         <div className={css(styles.calculator)}>
-          <TalentTree class={this.state.class} spec='1' type={this.state.type}></TalentTree>
-          <TalentTree class={this.state.class} spec='2' type={this.state.type}></TalentTree>
-          <TalentTree class={this.state.class} spec='3' type={this.state.type}></TalentTree>
+          {trees()}
         </div>
       </React.Fragment>
     );
