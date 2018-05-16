@@ -12,9 +12,25 @@ class TalentTree extends React.Component {
     this.config = require(`./config/${this.props.class}.json`);
     this.state = {
       spec: this.props.spec,
-      gridRows: talentOriginalRows + this.props.type * 2
+      gridRows: talentOriginalRows + this.props.type * 2,
+      treePoints: 0
     }
   }
+
+  handleTreePoints = (val) => {
+    console.log(val);
+    this.setState({treePoints: this.state.treePoints + val})
+  }
+
+  increment = () => {
+    console.log(1)
+    this.setState({treePoints: this.state.treePoints + 1})
+  }
+
+  decrement = () => {
+    this.setState({treePoints: this.state.treePoints - 1})
+  }
+
   render () {
     var classSprite = require(`./img/${this.props.class}.png`)
     var background = require(`./img/${this.props.class}_${this.props.spec}.jpg`)
@@ -28,7 +44,10 @@ class TalentTree extends React.Component {
       (talentConfig, i) => <Talent
         key={i}
         config={talentConfig}
-        sprite={classSprite}/>
+        sprite={classSprite}
+        increment={this.increment}
+        decrement={this.decrement}
+        treePoints={this.handleTreePoints}/>
       );
 
     return (

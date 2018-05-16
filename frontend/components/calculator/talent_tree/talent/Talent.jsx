@@ -17,41 +17,39 @@ class Talent extends React.Component {
       points: 0,
       availability: this.props.config.tier == 1,
     }
-    this.renderDescription = this.renderDescription.bind(this);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
   componentWillReceiveProps(props) {
     this.setState({
       sprite: props.sprite,
-      x: props.x,
-      y: props.y,
-      gridX: this.props.gridX,
-      descActive: this.props.descActive
+      x: props.config.posX,
+      y: props.config.posY,
+      gridX: props.config.gridX,
     });
   }
-  handleMouseEnter () {
+  handleMouseEnter = () => {
     this.setState({
       descActive: true
     });
   }
-  handleMouseLeave () {
+  handleMouseLeave = () => {
     this.setState({
       descActive: false
     });
   }
-  handleClick (e) {
+
+  handleClick = (e) => {
     if ((e.type === 'click') && (this.state.points < this.state.capacity)) {
-      this.setState({points: this.state.points + 1})
+      this.setState({points: this.state.points + 1});
+      this.props.treePoints(1);
     } else if (e.type === 'contextmenu') {
       e.preventDefault();
       if (this.state.points > 0) {
-        this.setState({points: this.state.points - 1})
+        this.setState({points: this.state.points - 1});
+        this.props.treePoints(-1);
       }
     }
   }
-  renderDescription () {
+  renderDescription = () => {
     return (this.state.descActive ? <Description config={this.props.config} points={this.state.points}></Description> : null);
   }
   render () {

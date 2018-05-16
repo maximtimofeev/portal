@@ -8,7 +8,8 @@ class Calculator extends React.Component {
     super();
     this.state = {
       class: 'warrior',
-      type: '1'
+      type: '1',
+      pointsAll: 61
     };
   }
   render () {
