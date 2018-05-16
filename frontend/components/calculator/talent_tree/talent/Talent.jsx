@@ -38,14 +38,19 @@ class Talent extends React.Component {
   }
 
   handleClick = (e) => {
-    if ((e.type === 'click') && (this.state.points < this.state.capacity)) {
+    const talentPickable = (
+        (this.state.points < this.state.capacity) && (this.props.talentCount > 0)
+      )
+    if ((e.type === 'click') && talentPickable) {
       this.setState({points: this.state.points + 1});
       this.props.treePoints(1);
+      this.props.handleCalculatorPoints(-1);
     } else if (e.type === 'contextmenu') {
       e.preventDefault();
       if (this.state.points > 0) {
         this.setState({points: this.state.points - 1});
         this.props.treePoints(-1);
+        this.props.handleCalculatorPoints(1);
       }
     }
   }

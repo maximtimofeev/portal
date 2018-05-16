@@ -35,7 +35,10 @@ class TalentTree extends React.Component {
         key={i}
         config={talentConfig}
         sprite={classSprite}
-        treePoints={this.handleTreePoints}/>
+        treePoints={this.handleTreePoints}
+        maxTalent={this.props.maxTalent}
+        talentCount={this.props.talentCount}
+        handleCalculatorPoints={this.props.handleCalculatorPoints}/>
       );
 
     return (

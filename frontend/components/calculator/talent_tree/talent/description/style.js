@@ -8,7 +8,6 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: '300px',
-    height: '50px',
     boxSizing: 'border-box',
     padding: '5px',
     color: '#ffffff',
@@ -17,8 +16,23 @@ export default StyleSheet.create({
     background: 'rgba(0, 0, 0, .8)',
     zIndex: '10'
   },
+  descriptionItem: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: '5px'
+  },
   talentName: {
     fontWeight: 'bold',
     marginBottom: '5px'
+  },
+  learnTips: {
+    justifyContent: 'space-between',
+    marginBottom: '0'
+  },
+  learn: {
+    color: '#1ae91b'
+  },
+  unlearn: {
+    color: '#fb1410'
   }
 });

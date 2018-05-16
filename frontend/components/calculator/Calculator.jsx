@@ -14,7 +14,7 @@ class Calculator extends React.Component {
     };
   }
   handlePoints = (val) => {
-    this.setState({pointsAvailable: this.pointsAvailable + val})
+    this.setState({pointsAvailable: this.state.pointsAvailable + val})
   }
   render () {
     let trees = () => {
@@ -27,7 +27,8 @@ class Calculator extends React.Component {
             spec={i}
             type={this.state.type}
             maxTalent={this.state.pointsCapacity}
-            talentCount={this.state.pointsAvailable}/>)
+            talentCount={this.state.pointsAvailable}
+            handleCalculatorPoints={this.handlePoints}/>)
       }
       return talentTrees;
     }

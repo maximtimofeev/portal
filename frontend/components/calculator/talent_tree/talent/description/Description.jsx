@@ -21,8 +21,12 @@ class Description extends React.Component {
     return (
       <React.Fragment>
         <div className={css(styles.description)}>
-          <div className={css(styles.talentName)}>{this.state.name}</div>
-          <div>Rank {this.state.points}/{this.state.capacity}</div>
+          <div className={css(styles.descriptionItem, styles.talentName)}>{this.state.name}</div>
+          <div className={css(styles.descriptionItem)}>Rank {this.state.points}/{this.state.capacity}</div>
+          <div className={css(styles.descriptionItem, styles.learnTips)}>
+            <span className={css(styles.learn)}>Left Click To Learn</span>
+            <span className={css(styles.unlearn)}>Right Click To Unlearn</span>
+          </div>
         </div>
       </React.Fragment>
     );
