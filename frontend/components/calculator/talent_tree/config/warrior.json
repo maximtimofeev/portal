@@ -47,6 +47,46 @@
       "gridX": "3",
       "capacity": "3",
       "tier": "2"
+    },
+    {
+      "name": "Improved Overpower",
+      "posX": "6",
+      "posY": "0",
+      "gridX": "1",
+      "capacity": "2",
+      "tier": "3"
+    },
+    {
+      "name": "Anger Management",
+      "posX": "7",
+      "posY": "0",
+      "gridX": "2",
+      "capacity": "1",
+      "tier": "3"
+    },
+    {
+      "name": "Deep Wounds",
+      "posX": "9",
+      "posY": "0",
+      "gridX": "3",
+      "capacity": "3",
+      "tier": "3"
+    },
+    {
+      "name": "Two-Handed Weapon Specialization",
+      "posX": "10",
+      "posY": "0",
+      "gridX": "2",
+      "capacity": "5",
+      "tier": "4"
+    },
+    {
+      "name": "Impale",
+      "posX": "8",
+      "posY": "0",
+      "gridX": "3",
+      "capacity": "2",
+      "tier": "4"
     }
   ],
   "2": [
