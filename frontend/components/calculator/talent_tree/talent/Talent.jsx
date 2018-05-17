@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { css } from 'aphrodite/no-important'
 import styles from './style'
 import Description from './description/Description'
+import PointCounter from './point_counter/PointCounter'
 
 class Talent extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class Talent extends React.Component {
   renderDescription = () => {
     return (this.state.descActive ? <Description config={this.props.config} points={this.state.points}></Description> : null);
   }
-  render () {
+  render() {
     const talentSideLength = 44;
     let talentContainerStyle = {
       gridColumnStart: this.state.gridX
@@ -74,15 +75,12 @@ class Talent extends React.Component {
         styles.talent,
         this.state.availability ? styles.active : null
       )
-    let talentAvailable = () => {
-      return (this.state.points >= 0 && this.state.availability) && (this.state.points < this.state.capacity)
-    }
     let talentPicked = () => {
       return (this.state.points == this.state.capacity)
     }
     const talentBorderClasses = css(
         styles.talentBorder,
-        talentAvailable() && styles.talentAvailable,
+        this.state.availability && styles.talentAvailable,
         talentPicked() && styles.talentPicked
       )
     return (
@@ -97,6 +95,11 @@ class Talent extends React.Component {
           </div>
           <div className={talentBorderClasses}>
           </div>
+          <PointCounter points={this.state.points}
+                        capacity={this.state.capacity}
+                        availability={this.state.availability}
+                        picked={talentPicked()}>
+          </PointCounter>
           {this.renderDescription()}
         </div>
       </React.Fragment>
