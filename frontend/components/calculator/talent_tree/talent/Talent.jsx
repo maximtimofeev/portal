@@ -16,7 +16,8 @@ class Talent extends React.Component {
       descActive: false,
       capacity: this.props.config.capacity,
       points: 0,
-      availability: this.props.treePoints >= (this.props.config.tier - 1) * 5
+      availability: this.props.treePoints >= (this.props.config.tier - 1) * 5,
+      masterPicked: false
     }
   }
   componentWillReceiveProps(props) {
@@ -25,7 +26,8 @@ class Talent extends React.Component {
       x: props.config.posX,
       y: props.config.posY,
       gridX: props.config.gridX,
-      availability: props.treePoints >= (props.config.tier - 1) * 5
+      availability: props.treePoints >= (props.config.tier - 1) * 5,
+      masterPicked: props.masterPicked
     });
   }
   handleMouseEnter = () => {
@@ -105,6 +107,10 @@ class Talent extends React.Component {
       </React.Fragment>
     );
   }
+}
+
+Talent.propTypes = {
+  masterPicked : PropTypes.func,
 }
 
 export default Talent

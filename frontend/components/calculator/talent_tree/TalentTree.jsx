@@ -21,6 +21,10 @@ class TalentTree extends React.Component {
     this.setState({treePoints: this.state.treePoints + val})
   }
 
+  masterPicked = () => {
+    this.setState({masterPicked: true})
+  }
+
   render () {
     var classSprite = require(`./img/${this.props.class}.png`)
     var background = require(`./img/${this.props.class}_${this.props.spec}.jpg`)
@@ -39,7 +43,8 @@ class TalentTree extends React.Component {
         handleTreePoints={this.handleTreePoints}
         maxTalent={this.props.maxTalent}
         talentCount={this.props.talentCount}
-        handleCalculatorPoints={this.props.handleCalculatorPoints}/>
+        handleCalculatorPoints={this.props.handleCalculatorPoints}
+        masterPicked={this.masterPicked}/>
       );
 
     return (

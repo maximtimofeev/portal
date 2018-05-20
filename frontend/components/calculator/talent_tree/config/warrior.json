@@ -2,135 +2,167 @@
   "1": [
     {
       "name": "Improved Heroic Strike",
+      "id": "0",
       "posX": "0",
       "posY": "0",
       "gridX": "1",
       "capacity": "3",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Deflection",
+      "id": "1",
       "posX": "1",
       "posY": "0",
       "gridX": "2",
       "capacity": "5",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Improved Rend",
+      "id": "2",
       "posX": "2",
       "posY": "0",
       "gridX": "3",
       "capacity": "2",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Improved Charge",
+      "id": "3",
       "posX": "3",
       "posY": "0",
       "gridX": "1",
       "capacity": "2",
-      "tier": "2"
+      "tier": "2",
+      "masterId": ""
     },
     {
       "name": "Iron Will",
+      "id": "4",
       "posX": "4",
       "posY": "0",
       "gridX": "2",
       "capacity": "5",
-      "tier": "2"
+      "tier": "2",
+      "masterId": ""
     },
     {
       "name": "Improved Thunder Clap",
+      "id": "5",
       "posX": "1",
       "posY": "4",
       "gridX": "3",
       "capacity": "3",
-      "tier": "2"
+      "tier": "2",
+      "masterId": ""
     },
     {
       "name": "Improved Overpower",
+      "id": "6",
       "posX": "6",
       "posY": "0",
       "gridX": "1",
       "capacity": "2",
-      "tier": "3"
+      "tier": "3",
+      "masterId": ""
     },
     {
       "name": "Anger Management",
+      "id": "7",
       "posX": "7",
       "posY": "0",
       "gridX": "2",
       "capacity": "1",
-      "tier": "3"
+      "tier": "3",
+      "masterId": ""
     },
     {
       "name": "Deep Wounds",
+      "id": "8",
       "posX": "9",
       "posY": "0",
       "gridX": "3",
       "capacity": "3",
-      "tier": "3"
+      "tier": "3",
+      "masterId": ""
     },
     {
       "name": "Two-Handed Weapon Specialization",
+      "id": "9",
       "posX": "10",
       "posY": "0",
       "gridX": "2",
       "capacity": "5",
-      "tier": "4"
+      "tier": "4",
+      "masterId": ""
     },
     {
       "name": "Impale",
+      "id": "10",
       "posX": "8",
       "posY": "0",
       "gridX": "3",
       "capacity": "2",
-      "tier": "4"
+      "tier": "4",
+      "masterId": "8"
     }
   ],
   "2": [
     {
       "name": "Booming Voice",
+      "id": "23",
       "posX": "3",
       "posY": "2",
       "gridX": "2",
       "capacity": "5",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Cruelty",
+      "id": "24",
       "posX": "4",
       "posY": "2",
       "gridX": "3",
       "capacity": "5",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     }
   ],
   "3": [
     {
       "name": "Improved Bloodrage",
+      "id": "44",
       "posX": "13",
       "posY": "3",
       "gridX": "1",
       "capacity": "2",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Tactical Mastery",
+      "id": "45",
       "posX": "5",
       "posY": "0",
       "gridX": "2",
       "capacity": "3",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     },
     {
       "name": "Anticipation",
+      "id": "46",
       "posX": "3",
       "posY": "4",
       "gridX": "3",
       "capacity": "5",
-      "tier": "1"
+      "tier": "1",
+      "masterId": ""
     }
   ]
 }
