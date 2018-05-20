@@ -21,8 +21,12 @@ class TalentTree extends React.Component {
     this.setState({treePoints: this.state.treePoints + val})
   }
 
-  masterPicked = () => {
-    this.setState({masterPicked: true})
+  handleMasterPicked = (slaveId) => {
+    this.setSlave(slaveId);
+  }
+
+  setSlave = (slaveId = null) => {
+    return slaveId;
   }
 
   render () {
@@ -44,7 +48,8 @@ class TalentTree extends React.Component {
         maxTalent={this.props.maxTalent}
         talentCount={this.props.talentCount}
         handleCalculatorPoints={this.props.handleCalculatorPoints}
-        masterPicked={this.masterPicked}/>
+        handleMasterPicked={this.handleMasterPicked}
+        handleSlave={this.setSlave}/>
       );
 
     return (

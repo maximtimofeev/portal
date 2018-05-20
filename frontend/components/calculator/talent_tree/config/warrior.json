@@ -8,7 +8,8 @@
       "gridX": "1",
       "capacity": "3",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Deflection",
@@ -18,7 +19,8 @@
       "gridX": "2",
       "capacity": "5",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Improved Rend",
@@ -28,7 +30,8 @@
       "gridX": "3",
       "capacity": "2",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Improved Charge",
@@ -38,7 +41,8 @@
       "gridX": "1",
       "capacity": "2",
       "tier": "2",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Iron Will",
@@ -48,7 +52,8 @@
       "gridX": "2",
       "capacity": "5",
       "tier": "2",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Improved Thunder Clap",
@@ -58,7 +63,8 @@
       "gridX": "3",
       "capacity": "3",
       "tier": "2",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Improved Overpower",
@@ -68,7 +74,8 @@
       "gridX": "1",
       "capacity": "2",
       "tier": "3",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Anger Management",
@@ -78,7 +85,8 @@
       "gridX": "2",
       "capacity": "1",
       "tier": "3",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Deep Wounds",
@@ -88,7 +96,8 @@
       "gridX": "3",
       "capacity": "3",
       "tier": "3",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": "10"
     },
     {
       "name": "Two-Handed Weapon Specialization",
@@ -98,7 +107,8 @@
       "gridX": "2",
       "capacity": "5",
       "tier": "4",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Impale",
@@ -108,7 +118,8 @@
       "gridX": "3",
       "capacity": "2",
       "tier": "4",
-      "masterId": "8"
+      "masterId": "8",
+      "slaveId": ""
     }
   ],
   "2": [
@@ -120,7 +131,8 @@
       "gridX": "2",
       "capacity": "5",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Cruelty",
@@ -130,7 +142,8 @@
       "gridX": "3",
       "capacity": "5",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     }
   ],
   "3": [
@@ -142,7 +155,8 @@
       "gridX": "1",
       "capacity": "2",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Tactical Mastery",
@@ -152,7 +166,8 @@
       "gridX": "2",
       "capacity": "3",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     },
     {
       "name": "Anticipation",
@@ -162,7 +177,8 @@
       "gridX": "3",
       "capacity": "5",
       "tier": "1",
-      "masterId": ""
+      "masterId": "",
+      "slaveId": ""
     }
   ]
 }

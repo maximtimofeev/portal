@@ -27,7 +27,7 @@ class Talent extends React.Component {
       y: props.config.posY,
       gridX: props.config.gridX,
       availability: props.treePoints >= (props.config.tier - 1) * 5,
-      masterPicked: props.masterPicked
+      masterPicked: props.handleSlave()
     });
   }
   handleMouseEnter = () => {
@@ -40,7 +40,9 @@ class Talent extends React.Component {
       descActive: false
     });
   }
-
+  talentPicked = () => {
+      return (this.state.points == this.state.capacity)
+  }
   handleClick = (e) => {
     const talentPickable = (
         (this.state.points < this.state.capacity)
@@ -59,6 +61,9 @@ class Talent extends React.Component {
         this.props.handleCalculatorPoints(1);
       }
     }
+    if (this.state.points == this.state.capacity) {
+        this.props.handleMasterPicked(this.props.config.slaveId);
+    }
   }
   renderDescription = () => {
     return (this.state.descActive ? <Description config={this.props.config} points={this.state.points}></Description> : null);
@@ -75,16 +80,15 @@ class Talent extends React.Component {
     }
     let talentClass = css(
         styles.talent,
-        this.state.availability ? styles.active : null
+        this.state.availability && this.state.points > 0 ? styles.active : null
       )
-    let talentPicked = () => {
-      return (this.state.points == this.state.capacity)
-    }
+   
     const talentBorderClasses = css(
         styles.talentBorder,
-        this.state.availability && styles.talentAvailable,
-        talentPicked() && styles.talentPicked
+        this.state.availability && this.state.points > 0 && styles.talentAvailable,
+        this.talentPicked() && styles.talentPicked
       )
+
     return (
       <React.Fragment>
         <div className={css(styles.talentContainer)}
@@ -100,7 +104,7 @@ class Talent extends React.Component {
           <PointCounter points={this.state.points}
                         capacity={this.state.capacity}
                         availability={this.state.availability}
-                        picked={talentPicked()}>
+                        picked={this.talentPicked()}>
           </PointCounter>
           {this.renderDescription()}
         </div>
