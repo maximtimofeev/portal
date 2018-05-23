@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { css } from 'aphrodite/no-important'
-import styles from './style'
-import Talent from './talent/Talent'
+import React from "react";
+import PropTypes from "prop-types";
+import { css } from 'aphrodite/no-important';
+import styles from './style';
+import Talent from './talent/Talent';
 
 class TalentTree extends React.Component {
   constructor(props) {
@@ -19,14 +19,6 @@ class TalentTree extends React.Component {
 
   handleTreePoints = (val) => {
     this.setState({treePoints: this.state.treePoints + val})
-  }
-
-  handleMasterPicked = (slaveId) => {
-    this.setSlave(slaveId);
-  }
-
-  setSlave = (slaveId = null) => {
-    return slaveId;
   }
 
   render () {
@@ -47,11 +39,8 @@ class TalentTree extends React.Component {
         handleTreePoints={this.handleTreePoints}
         maxTalent={this.props.maxTalent}
         talentCount={this.props.talentCount}
-        handleCalculatorPoints={this.props.handleCalculatorPoints}
-        handleMasterPicked={this.handleMasterPicked}
-        handleSlave={this.setSlave}/>
+        handleCalculatorPoints={this.props.handleCalculatorPoints}/>
       );
-
     return (
       <React.Fragment>
         <div className={css(styles.tree)} style={treeStyle}>

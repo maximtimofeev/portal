@@ -1,9 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { css } from 'aphrodite/no-important'
-import styles from './style'
-import Description from './description/Description'
-import PointCounter from './point_counter/PointCounter'
+import React from "react";
+import PropTypes from "prop-types";
+import { css } from 'aphrodite/no-important';
+import styles from './style';
+import Description from './description/Description';
+import PointCounter from './point_counter/PointCounter';
+import store from '../../store';
 
 class Talent extends React.Component {
   constructor(props) {
@@ -19,6 +20,12 @@ class Talent extends React.Component {
       availability: this.props.treePoints >= (this.props.config.tier - 1) * 5,
       masterPicked: false
     }
+    store.subscribe(() => {
+      console.log(this.props.config.name, store.getState().talentDependencity[0] == this.props.config.id)
+      this.setState({
+        masterPicked: store.getState().talentDependencity[0] == this.props.config.id,
+      })
+    })
   }
   componentWillReceiveProps(props) {
     this.setState({
@@ -27,7 +34,6 @@ class Talent extends React.Component {
       y: props.config.posY,
       gridX: props.config.gridX,
       availability: props.treePoints >= (props.config.tier - 1) * 5,
-      masterPicked: props.handleSlave()
     });
   }
   handleMouseEnter = () => {
@@ -53,6 +59,9 @@ class Talent extends React.Component {
       this.setState({points: this.state.points + 1});
       this.props.handleTreePoints(1);
       this.props.handleCalculatorPoints(-1);
+      if ((this.state.points == this.state.capacity - 1) && (this.props.config.slaveId != "")) {
+        store.dispatch({type: 'ADD_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
+      }
     } else if (e.type === 'contextmenu') {
       e.preventDefault();
       if (this.state.points > 0) {
@@ -61,14 +70,11 @@ class Talent extends React.Component {
         this.props.handleCalculatorPoints(1);
       }
     }
-    if (this.state.points == this.state.capacity) {
-        this.props.handleMasterPicked(this.props.config.slaveId);
-    }
   }
   renderDescription = () => {
     return (this.state.descActive ? <Description config={this.props.config} points={this.state.points}></Description> : null);
   }
-  render() {
+  render () {
     const talentSideLength = 44;
     let talentContainerStyle = {
       gridColumnStart: this.state.gridX
@@ -80,7 +86,7 @@ class Talent extends React.Component {
     }
     let talentClass = css(
         styles.talent,
-        this.state.availability && this.state.points > 0 ? styles.active : null
+        this.state.availability && this.state.points > 0 && !this.state.masterPicked ? styles.active : null
       )
    
     const talentBorderClasses = css(
@@ -111,10 +117,6 @@ class Talent extends React.Component {
       </React.Fragment>
     );
   }
-}
-
-Talent.propTypes = {
-  masterPicked : PropTypes.func,
 }
 
 export default Talent

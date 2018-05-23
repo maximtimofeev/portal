@@ -1,8 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { css } from 'aphrodite/no-important'
-import styles from './style'
-import TalentTree from './talent_tree/TalentTree'
+import React from "react";
+import PropTypes from "prop-types";
+import {Provider} from 'react-redux';
+import { css } from 'aphrodite/no-important';
+import styles from './style';
+import TalentTree from './talent_tree/TalentTree';
+import store from './store'
+
 class Calculator extends React.Component {
   constructor () {
     super();
@@ -32,12 +35,15 @@ class Calculator extends React.Component {
       }
       return talentTrees;
     }
+    //store.subscribe(() => {
+    //  console.log('talent', store.getState());
+    //})
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <div className={css(styles.calculator)}>
           {trees()}
         </div>
-      </React.Fragment>
+      </Provider>
     );
   }
 }
