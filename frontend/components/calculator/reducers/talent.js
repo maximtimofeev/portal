@@ -1,9 +1,14 @@
 export const talentDependencity = (state = [], action) => {
-  if (action.type == 'ADD_TALENT_SLAVE_ID') {
-    return [
-      ...state,
-      action.slaveId
-    ];
+  switch (action.type) {
+    case 'ADD_TALENT_SLAVE_ID':
+      let newSlaveId = { id: action.id, slaveId: action.slaveId }
+      return state.concat([newSlaveId]);
+      break;
+    case 'REMOVE_TALENT_SLAVE_ID':
+      const slaveId = action.slaveId;
+      return state.filter(talent => talent.slaveId !== slaveId);
+      break;
+    default:
+      return state || [];
   }
-  return state;
 }

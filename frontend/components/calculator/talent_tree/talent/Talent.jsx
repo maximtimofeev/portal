@@ -21,10 +21,15 @@ class Talent extends React.Component {
       masterPicked: false
     }
     store.subscribe(() => {
-      console.log(this.props.config.name, store.getState().talentDependencity[0] == this.props.config.id)
+      const slaveId = store.getState().talentDependencity.find((obj) => obj.id == this.props.config.masterId);
       this.setState({
-        masterPicked: store.getState().talentDependencity[0] == this.props.config.id,
+        masterPicked: slaveId == undefined ? false : slaveId.slaveId == this.props.config.id,
       })
+      if (this.props.config.masterId != "") {
+        this.setState({
+          availability: this.props.treePoints >= (this.props.config.tier - 1) * 5 && this.props.masterPicked,
+        })
+      }
     })
   }
   componentWillReceiveProps(props) {
@@ -33,7 +38,7 @@ class Talent extends React.Component {
       x: props.config.posX,
       y: props.config.posY,
       gridX: props.config.gridX,
-      availability: props.treePoints >= (props.config.tier - 1) * 5,
+      availability: props.config.masterId != "" ? (props.treePoints >= (props.config.tier - 1) * 5 && this.state.masterPicked) : props.treePoints >= (props.config.tier - 1) * 5,
     });
   }
   handleMouseEnter = () => {
@@ -55,19 +60,24 @@ class Talent extends React.Component {
         && (this.props.talentCount > 0)
         && (this.state.availability)
       )
+    e.preventDefault();
     if ((e.type === 'click') && talentPickable) {
       this.setState({points: this.state.points + 1});
       this.props.handleTreePoints(1);
       this.props.handleCalculatorPoints(-1);
       if ((this.state.points == this.state.capacity - 1) && (this.props.config.slaveId != "")) {
-        store.dispatch({type: 'ADD_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
+        store.dispatch({type: 'ADD_TALENT_SLAVE_ID', id: this.props.config.id, slaveId: this.props.config.slaveId});
       }
     } else if (e.type === 'contextmenu') {
-      e.preventDefault();
       if (this.state.points > 0) {
         this.setState({points: this.state.points - 1});
         this.props.handleTreePoints(-1);
         this.props.handleCalculatorPoints(1);
+      }
+      if (this.props.config.slaveId != "") {
+        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
+          store.dispatch({type: 'REMOVE_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
+        }
       }
     }
   }
