@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { css } from 'aphrodite/no-important';
 import styles from './style';
 import Talent from './talent/Talent';
+import store from '../store';
 
 class TalentTree extends React.Component {
   constructor(props) {
@@ -15,6 +16,12 @@ class TalentTree extends React.Component {
       gridRows: talentOriginalRows + this.props.type * 2,
       treePoints: 0
     }
+  }
+
+  handleStore = () => {
+    store.subscribe(() => {
+      console.log("hej from tree");
+    })
   }
 
   handleTreePoints = (val) => {
@@ -39,7 +46,8 @@ class TalentTree extends React.Component {
         handleTreePoints={this.handleTreePoints}
         maxTalent={this.props.maxTalent}
         talentCount={this.props.talentCount}
-        handleCalculatorPoints={this.props.handleCalculatorPoints}/>
+        handleCalculatorPoints={this.props.handleCalculatorPoints}
+        handleStore={this.handleStore}/>
       );
     return (
       <React.Fragment>

@@ -18,21 +18,32 @@ class Talent extends React.Component {
       capacity: this.props.config.capacity,
       points: 0,
       availability: this.props.treePoints >= (this.props.config.tier - 1) * 5,
-      masterPicked: false
+      masterPicked: false,
+      slaveFree: true
     }
-    store.subscribe(() => {
+    store.subscribe(() => {     
       const slaveId = store.getState().talentDependencity.find((obj) => obj.id == this.props.config.masterId);
-      this.setState({
-        masterPicked: slaveId == undefined ? false : slaveId.slaveId == this.props.config.id,
-      })
+      let masterPicked = slaveId == undefined ? false : slaveId.slaveId == this.props.config.id;
+
+     
       if (this.props.config.masterId != "") {
         this.setState({
-          availability: this.props.treePoints >= (this.props.config.tier - 1) * 5 && this.props.masterPicked,
+          masterPicked: masterPicked,
+          availability: this.props.treePoints >= (this.props.config.tier - 1) * 5 && masterPicked,
         })
       }
+       if (this.props.config.masterId != "") {
+        console.log("store", store.getState());
+        console.log("name", this.props.config.name, "storemasterPicked", masterPicked, "masterPicked", this.state.masterPicked)
+      }
     })
+    
   }
   componentWillReceiveProps(props) {
+    this.props.handleStore();
+     if (this.props.config.masterId != "") {
+        console.log("name", this.props.config.name, "statemasterPicked", this.state.masterPicked)
+      }
     this.setState({
       sprite: props.sprite,
       x: props.config.posX,
@@ -40,6 +51,10 @@ class Talent extends React.Component {
       gridX: props.config.gridX,
       availability: props.config.masterId != "" ? (props.treePoints >= (props.config.tier - 1) * 5 && this.state.masterPicked) : props.treePoints >= (props.config.tier - 1) * 5,
     });
+
+  }
+  componentWillMount() {
+
   }
   handleMouseEnter = () => {
     this.setState({
