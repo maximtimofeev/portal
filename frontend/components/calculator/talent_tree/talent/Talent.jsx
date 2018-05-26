@@ -18,20 +18,26 @@ class Talent extends React.Component {
       capacity: this.props.config.capacity,
       points: 0,
       availability: this.props.treePoints >= (this.props.config.tier - 1) * 5,
-      masterPicked: false,
-      slaveFree: true
+      slavePicked: false
     } 
   }
   componentWillReceiveProps(props) {
+    console.log(props.storeState);
     this.setState({
       availability:  props.treePoints >= (props.config.tier - 1) * 5,
     });
-    const slaveId = store.getState().talentDependencity.find((obj) => obj.id == props.config.masterId);
+    const masterState = props.storeState.talentDependencity.find((obj) => obj.id == props.config.masterId);
+    const slaveState = props.storeState.talentDependencity.find((obj) => obj.id == props.config.slaveId);
     let masterPicked = false
-    if (this.props.config.masterId != "") {
-      masterPicked = slaveId == undefined ? false : slaveId.slaveId == props.config.id;
+    if (props.config.masterId != "") {
+      masterPicked = masterState == undefined ? false : masterState.slaveId == props.config.id;
       this.setState({
         availability: props.treePoints >= (props.config.tier - 1) * 5 && masterPicked
+      })
+    }
+    if (props.config.slaveId != "") {
+      this.setState({
+        slavePicked: slaveState == undefined ? false : slaveState.masterId == props.config.id
       })
     }
   }
@@ -54,16 +60,24 @@ class Talent extends React.Component {
         && (this.props.talentCount > 0)
         && (this.state.availability)
       )
+    const addStoreReady = (
+        this.state.points == this.state.capacity - 1
+      )
     e.preventDefault();
     if ((e.type === 'click') && talentPickable) {
       this.setState({points: this.state.points + 1});
       this.props.handleTreePoints(1);
       this.props.handleCalculatorPoints(-1);
-      if ((this.state.points == this.state.capacity - 1) && (this.props.config.slaveId != "")) {
-        store.dispatch({type: 'ADD_TALENT_SLAVE_ID', id: this.props.config.id, slaveId: this.props.config.slaveId});
+      if (addStoreReady) {
+        if (this.props.config.slaveId != "") {
+          store.dispatch({type: 'ADD_TALENT_SLAVE_ID', id: this.props.config.id, slaveId: this.props.config.slaveId});
+        }
+        if (this.props.config.masterId != "") {
+          store.dispatch({type: 'ADD_TALENT_MASTER_ID', id: this.props.config.id, masterId: this.props.config.masterId});
+        }
       }
     } else if (e.type === 'contextmenu') {
-      if (this.state.points > 0) {
+      if (this.state.points > 0 && !this.state.slavePicked) {
         this.setState({points: this.state.points - 1});
         this.props.handleTreePoints(-1);
         this.props.handleCalculatorPoints(1);
@@ -71,6 +85,11 @@ class Talent extends React.Component {
       if (this.props.config.slaveId != "") {
         if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
           store.dispatch({type: 'REMOVE_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
+        }
+      }
+      if (this.props.config.masterId != "") {
+        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
+          store.dispatch({type: 'REMOVE_TALENT_MASTER_ID', masterId: this.props.config.masterId});
         }
       }
     }
