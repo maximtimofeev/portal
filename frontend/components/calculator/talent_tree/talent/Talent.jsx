@@ -20,41 +20,20 @@ class Talent extends React.Component {
       availability: this.props.treePoints >= (this.props.config.tier - 1) * 5,
       masterPicked: false,
       slaveFree: true
-    }
-    store.subscribe(() => {     
-      const slaveId = store.getState().talentDependencity.find((obj) => obj.id == this.props.config.masterId);
-      let masterPicked = slaveId == undefined ? false : slaveId.slaveId == this.props.config.id;
-
-     
-      if (this.props.config.masterId != "") {
-        this.setState({
-          masterPicked: masterPicked,
-          availability: this.props.treePoints >= (this.props.config.tier - 1) * 5 && masterPicked,
-        })
-      }
-       if (this.props.config.masterId != "") {
-        console.log("store", store.getState());
-        console.log("name", this.props.config.name, "storemasterPicked", masterPicked, "masterPicked", this.state.masterPicked)
-      }
-    })
-    
+    } 
   }
   componentWillReceiveProps(props) {
-    this.props.handleStore();
-     if (this.props.config.masterId != "") {
-        console.log("name", this.props.config.name, "statemasterPicked", this.state.masterPicked)
-      }
     this.setState({
-      sprite: props.sprite,
-      x: props.config.posX,
-      y: props.config.posY,
-      gridX: props.config.gridX,
-      availability: props.config.masterId != "" ? (props.treePoints >= (props.config.tier - 1) * 5 && this.state.masterPicked) : props.treePoints >= (props.config.tier - 1) * 5,
+      availability:  props.treePoints >= (props.config.tier - 1) * 5,
     });
-
-  }
-  componentWillMount() {
-
+    const slaveId = store.getState().talentDependencity.find((obj) => obj.id == props.config.masterId);
+    let masterPicked = false
+    if (this.props.config.masterId != "") {
+      masterPicked = slaveId == undefined ? false : slaveId.slaveId == props.config.id;
+      this.setState({
+        availability: props.treePoints >= (props.config.tier - 1) * 5 && masterPicked
+      })
+    }
   }
   handleMouseEnter = () => {
     this.setState({

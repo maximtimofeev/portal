@@ -19,9 +19,7 @@ class TalentTree extends React.Component {
   }
 
   handleStore = () => {
-    store.subscribe(() => {
-      console.log("hej from tree");
-    })
+    console.log("store from tree", store.getState())
   }
 
   handleTreePoints = (val) => {
@@ -47,7 +45,7 @@ class TalentTree extends React.Component {
         maxTalent={this.props.maxTalent}
         talentCount={this.props.talentCount}
         handleCalculatorPoints={this.props.handleCalculatorPoints}
-        handleStore={this.handleStore}/>
+        storeState={store.getState()}/>
       );
     return (
       <React.Fragment>
