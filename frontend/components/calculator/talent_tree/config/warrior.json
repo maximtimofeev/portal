@@ -9,7 +9,9 @@
       "capacity": "3",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "Reduces the cost of your Heroic Strike ability by <0> rage point.",
+      "descValues": [[1, 2, 3]]
     },
     {
       "name": "Deflection",
@@ -20,7 +22,9 @@
       "capacity": "5",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "Increases your Parry chance by <0>%.",
+      "descValues": [[1, 2, 3, 4, 5]]
     },
     {
       "name": "Improved Rend",
@@ -28,10 +32,12 @@
       "posX": "2",
       "posY": "0",
       "gridX": "3",
-      "capacity": "2",
+      "capacity": "3",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "Increases the bleed damage by your Rend ability by <0>%.",
+      "descValues": [[25, 50, 75]]
     },
     {
       "name": "Improved Charge",
@@ -42,7 +48,9 @@
       "capacity": "2",
       "tier": "2",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Iron Will",
@@ -53,7 +61,9 @@
       "capacity": "5",
       "tier": "2",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Improved Thunder Clap",
@@ -64,7 +74,9 @@
       "capacity": "3",
       "tier": "2",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Improved Overpower",
@@ -75,7 +87,9 @@
       "capacity": "2",
       "tier": "3",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Anger Management",
@@ -86,7 +100,9 @@
       "capacity": "1",
       "tier": "3",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Deep Wounds",
@@ -97,7 +113,9 @@
       "capacity": "3",
       "tier": "3",
       "masterId": "",
-      "slaveId": "10"
+      "slaveId": "10",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Two-Handed Weapon Specialization",
@@ -108,7 +126,9 @@
       "capacity": "5",
       "tier": "4",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Impale",
@@ -119,7 +139,9 @@
       "capacity": "2",
       "tier": "4",
       "masterId": "8",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     }
   ],
   "2": [
@@ -132,7 +154,9 @@
       "capacity": "5",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Cruelty",
@@ -143,7 +167,9 @@
       "capacity": "5",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     }
   ],
   "3": [
@@ -156,7 +182,9 @@
       "capacity": "2",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Tactical Mastery",
@@ -167,7 +195,9 @@
       "capacity": "3",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     },
     {
       "name": "Anticipation",
@@ -178,7 +208,9 @@
       "capacity": "5",
       "tier": "1",
       "masterId": "",
-      "slaveId": ""
+      "slaveId": "",
+      "description": "",
+      "descValues": []
     }
   ]
 }
