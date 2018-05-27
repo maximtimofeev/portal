@@ -22,7 +22,6 @@ class Talent extends React.Component {
     } 
   }
   componentWillReceiveProps(props) {
-    console.log(props.storeState);
     this.setState({
       availability:  props.treePoints >= (props.config.tier - 1) * 5,
     });
@@ -41,16 +40,47 @@ class Talent extends React.Component {
       })
     }
   }
+  setDescState = (state) => {
+    this.setState({descActive: state})
+  }
   handleMouseEnter = () => {
-    this.setState({
-      descActive: true
-    });
+    this.setDescState(true);
   }
   handleMouseLeave = () => {
-    this.setState({
-      descActive: false
-    });
+    this.setDescState(false);
   }
+  handleMouseLeftClick = () => {
+    this.setState({points: this.state.points + 1});
+    this.props.handleTreePoints(1);
+    this.props.handleCalculatorPoints(-1);
+    if (this.state.points == this.state.capacity - 1) {
+      if (this.props.config.slaveId != "") {
+        store.dispatch({type: 'ADD_TALENT_SLAVE_ID', id: this.props.config.id, slaveId: this.props.config.slaveId});
+      }
+      if (this.props.config.masterId != "") {
+        store.dispatch({type: 'ADD_TALENT_MASTER_ID', id: this.props.config.id, masterId: this.props.config.masterId});
+      }
+    }
+  }
+
+  handleMouseRightClick = () => {
+    if (this.state.points > 0 && !this.state.slavePicked) {
+      this.setState({points: this.state.points - 1});
+      this.props.handleTreePoints(-1);
+      this.props.handleCalculatorPoints(1);
+      if ((this.props.config.slaveId != "") && !this.state.slavePicked) {
+        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
+          store.dispatch({type: 'REMOVE_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
+        }
+      }
+      if ((this.props.config.masterId != "") && (this.state.points == 1)) {
+        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
+          store.dispatch({type: 'REMOVE_TALENT_MASTER_ID', masterId: this.props.config.masterId});
+        }
+      }
+    }
+  }
+
   talentPicked = () => {
       return (this.state.points == this.state.capacity)
   }
@@ -59,39 +89,15 @@ class Talent extends React.Component {
         (this.state.points < this.state.capacity)
         && (this.props.talentCount > 0)
         && (this.state.availability)
-      )
-    const addStoreReady = (
-        this.state.points == this.state.capacity - 1
-      )
+      );
+    const tierUnpickable = (
+        this.props.treePoints <= this.props.config.tier * 5
+      );
     e.preventDefault();
     if ((e.type === 'click') && talentPickable) {
-      this.setState({points: this.state.points + 1});
-      this.props.handleTreePoints(1);
-      this.props.handleCalculatorPoints(-1);
-      if (addStoreReady) {
-        if (this.props.config.slaveId != "") {
-          store.dispatch({type: 'ADD_TALENT_SLAVE_ID', id: this.props.config.id, slaveId: this.props.config.slaveId});
-        }
-        if (this.props.config.masterId != "") {
-          store.dispatch({type: 'ADD_TALENT_MASTER_ID', id: this.props.config.id, masterId: this.props.config.masterId});
-        }
-      }
-    } else if (e.type === 'contextmenu') {
-      if (this.state.points > 0 && !this.state.slavePicked) {
-        this.setState({points: this.state.points - 1});
-        this.props.handleTreePoints(-1);
-        this.props.handleCalculatorPoints(1);
-      }
-      if (this.props.config.slaveId != "") {
-        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
-          store.dispatch({type: 'REMOVE_TALENT_SLAVE_ID', slaveId: this.props.config.slaveId});
-        }
-      }
-      if (this.props.config.masterId != "") {
-        if (store.getState().talentDependencity.find((obj) => obj.id == this.props.config.id) != undefined) {
-          store.dispatch({type: 'REMOVE_TALENT_MASTER_ID', masterId: this.props.config.masterId});
-        }
-      }
+      this.handleMouseLeftClick();
+    } else if ((e.type === 'contextmenu') ) {
+      this.handleMouseRightClick();      
     }
   }
   renderDescription = () => {
@@ -109,7 +115,7 @@ class Talent extends React.Component {
     }
     let talentClass = css(
         styles.talent,
-        this.state.availability && this.state.points > 0 && !this.state.masterPicked ? styles.active : null
+        this.state.availability && this.state.points > 0 && !this.state.masterPicked && styles.active
       )
    
     const talentBorderClasses = css(

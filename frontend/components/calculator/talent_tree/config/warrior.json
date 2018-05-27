@@ -31,7 +31,7 @@
       "capacity": "2",
       "tier": "1",
       "masterId": "",
-      "slaveId": "5"
+      "slaveId": ""
     },
     {
       "name": "Improved Charge",
@@ -63,7 +63,7 @@
       "gridX": "3",
       "capacity": "3",
       "tier": "2",
-      "masterId": "2",
+      "masterId": "",
       "slaveId": ""
     },
     {
