@@ -23,6 +23,12 @@ class Description extends React.Component {
     })
     return text;
   };
+  renderNextRank = () => {
+    return (this.props.points > 0 && this.props.points < this.props.config.capacity) ? <div className={css(styles.descriptionItem)}>
+        Next Rank:<br/>
+        {this.handleDescText(this.props.config.description, this.props.points + 1)}
+      </div> : null
+  }
   render () {
     return (
       <React.Fragment>
@@ -30,6 +36,7 @@ class Description extends React.Component {
           <div className={css(styles.descriptionItem, styles.talentName)}>{this.props.config.name}</div>
           <div className={css(styles.descriptionItem)}>Rank {this.props.points}/{this.props.config.capacity}</div>
           <div className={css(styles.descriptionItem)}>{this.state.text}</div>
+          {this.renderNextRank()}
           <div className={css(styles.descriptionItem, styles.learnTips)}>
             <span className={css(styles.learn)}>Left Click To Learn</span>
             <span className={css(styles.unlearn)}>Right Click To Unlearn</span>
