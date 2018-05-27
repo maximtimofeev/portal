@@ -5,16 +5,24 @@ import styles from './style'
 
 class Description extends React.Component {
   constructor (props) {
-    super(props);
-    let text = this.props.config.description;
-    this.props.config.descValues.map((value, i) => {
-      let regex = new RegExp(`<${i}>`);
-      text = text.replace(regex, value[this.props.points == 0 ? 0 : this.props.points - 1]);
-    })
+    super(props);    
     this.state = {
-      text: text
+      text: this.handleDescText(this.props.config.description, this.props.points)
     }
   }
+  componentWillReceiveProps(props) {
+    this.setState({
+      text: this.handleDescText(props.config.description, props.points)
+    })
+  }
+  handleDescText = (description, points) => {
+    let text = description;
+    this.props.config.descValues.map((value, i) => {
+      let regex = new RegExp(`<${i}>`);
+      text = text.replace(regex, value[points == 0 ? 0 : points - 1]);
+    })
+    return text;
+  };
   render () {
     return (
       <React.Fragment>

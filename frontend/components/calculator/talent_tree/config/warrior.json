@@ -75,8 +75,12 @@
       "tier": "2",
       "masterId": "",
       "slaveId": "",
-      "description": "",
-      "descValues": []
+      "description": "Reduces the cost of your Thunder Clap ability by <0> rage point and increases the damage by <1>% and the slowing effect by an additional <2>%.",
+      "descValues": [
+        [1,2,4],
+        [40, 70, 100],
+        [4, 7, 10]
+      ]
     },
     {
       "name": "Improved Overpower",
