@@ -4,6 +4,7 @@ import { css } from 'aphrodite/no-important';
 import styles from './style';
 import Description from './description/Description';
 import PointCounter from './point_counter/PointCounter';
+import Arrow from './arrow/Arrow';
 import store from '../../store';
 
 class Talent extends React.Component {
@@ -105,6 +106,9 @@ class Talent extends React.Component {
   }
   render () {
     const talentSideLength = 44;
+    const talentHasArrow = (
+      this.props.config.arrowDirection != "" && this.props.config.arrowLength != ""
+      );
     let talentContainerStyle = {
       gridColumnStart: this.state.gridX
     }
@@ -116,13 +120,13 @@ class Talent extends React.Component {
     let talentClass = css(
         styles.talent,
         this.state.availability && this.state.points > 0 && !this.state.masterPicked && styles.active
-      )
+      );
    
     const talentBorderClasses = css(
         styles.talentBorder,
         this.state.availability && this.state.points > 0 && styles.talentAvailable,
         this.talentPicked() && styles.talentPicked
-      )
+      );
 
     return (
       <React.Fragment>
@@ -142,6 +146,8 @@ class Talent extends React.Component {
                         picked={this.talentPicked()}>
           </PointCounter>
           {this.renderDescription()}
+          {console.log(this.props.config.name, talentHasArrow)}
+          {talentHasArrow ? <Arrow config={this.props.config}></Arrow> : null}
         </div>
       </React.Fragment>
     );
