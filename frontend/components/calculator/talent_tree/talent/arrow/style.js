@@ -11,6 +11,7 @@ export default StyleSheet.create({
     backgroundRepeat: "repeat",
     pointerEvents: "none",
     zIndex: "10",
+    filter: "grayscale(100%)",
 
     ":after": {
       content: '""',
@@ -19,8 +20,19 @@ export default StyleSheet.create({
       height: "11px",
       position: "absolute",
       bottom: "-10px",
-      left: "-3px",
+      left: "-4px",
       backgroundImage: `url(${arrow})`
+    },
+  },
+  available: {
+    filter: "none",
+  },
+  picked: {
+    filter: "none",
+    backgroundPositionX: "-11px",
+
+    ":after": {
+      backgroundPositionX: "-19px",
     },
   },
   down1: {  

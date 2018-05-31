@@ -8,6 +8,8 @@ class Arrow extends React.Component {
 
     const arrowClasses = css(
         styles.arrow,
+        this.props.availability && !this.props.slavePicked && styles.available,
+        this.props.slavePicked && styles.picked,
         this.props.config.arrowDirection == "right" && styles.right,
         (this.props.config.arrowDirection == "down" && this.props.config.arrowLength == "1") && styles.down1,
         (this.props.config.arrowDirection == "down" && this.props.config.arrowLength == "2") && styles.down2,

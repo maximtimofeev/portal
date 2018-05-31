@@ -147,7 +147,9 @@ class Talent extends React.Component {
           </PointCounter>
           {this.renderDescription()}
           {console.log(this.props.config.name, talentHasArrow)}
-          {talentHasArrow ? <Arrow config={this.props.config}></Arrow> : null}
+          {talentHasArrow ? <Arrow config={this.props.config}
+                                   availability={this.state.points == this.state.capacity}
+                                   slavePicked={this.state.slavePicked}></Arrow> : null}
         </div>
       </React.Fragment>
     );

@@ -11,6 +11,7 @@ export default StyleSheet.create({
     boxSizing: 'border-box',
     padding: '5px',
     color: '#ffffff',
+    fontSize: '14px',
     border: '1px solid #a5a5a5',
     borderRadius: '1px',
     background: 'rgba(0, 0, 0, .8)',
@@ -19,7 +20,8 @@ export default StyleSheet.create({
   descriptionItem: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    lineHeight: '18px',
   },
   talentName: {
     fontWeight: 'bold',
