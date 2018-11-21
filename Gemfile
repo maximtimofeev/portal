@@ -24,6 +24,7 @@ gem 'react-rails'
 
 
 gem 'foreman'
+gem 'figaro'
 
 gem 'slim-rails'
 

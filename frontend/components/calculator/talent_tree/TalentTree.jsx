@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from 'aphrodite/no-important';
-import styles from './style';
-import Talent from './talent/Talent';
-import store from '../store';
+import { css } from "aphrodite/no-important";
+import styles from "./style";
+import Talent from "./talent/Talent";
+import store from "../store";
 
 class TalentTree extends React.Component {
   constructor(props) {
@@ -15,38 +15,42 @@ class TalentTree extends React.Component {
       spec: this.props.spec,
       gridRows: talentOriginalRows + this.props.type * 2,
       treePoints: 0
-    }
+    };
   }
 
   handleStore = () => {
-    console.log("store from tree", store.getState())
-  }
+    console.log("store from tree", store.getState());
+  };
 
-  handleTreePoints = (val) => {
-    this.setState({treePoints: this.state.treePoints + val})
-  }
+  handleTreePoints = val => {
+    this.setState({ treePoints: this.state.treePoints + val });
+  };
 
-  render () {
-    var classSprite = require(`./img/${this.props.class}.png`)
-    var background = require(`./img/${this.props.class}_${this.props.spec}.jpg`)
+  render() {
+    var classSprite = require(`assets/images/${this.props.class}.png`);
+    var background = require(`assets/images/${this.props.class}_${
+      this.props.spec
+    }.jpg`);
 
     let treeStyle = {
       backgroundImage: `url('${background}')`,
-      backgroundRepaet: 'no-repeat',
+      backgroundRepaet: "no-repeat",
       gridTemplateRows: `repeat(${this.state.gridRows}, 1fr)`
     };
-    let talents = () => this.config[`${this.state.spec}`].map(
-      (talentConfig, i) => <Talent
-        key={i}
-        config={talentConfig}
-        sprite={classSprite}
-        treePoints={this.state.treePoints}
-        handleTreePoints={this.handleTreePoints}
-        maxTalent={this.props.maxTalent}
-        talentCount={this.props.talentCount}
-        handleCalculatorPoints={this.props.handleCalculatorPoints}
-        storeState={store.getState()}/>
-      );
+    let talents = () =>
+      this.config[`${this.state.spec}`].map((talentConfig, i) => (
+        <Talent
+          key={i}
+          config={talentConfig}
+          sprite={classSprite}
+          treePoints={this.state.treePoints}
+          handleTreePoints={this.handleTreePoints}
+          maxTalent={this.props.maxTalent}
+          talentCount={this.props.talentCount}
+          handleCalculatorPoints={this.props.handleCalculatorPoints}
+          storeState={store.getState()}
+        />
+      ));
     return (
       <React.Fragment>
         <div className={css(styles.tree)} style={treeStyle}>
@@ -57,4 +61,4 @@ class TalentTree extends React.Component {
   }
 }
 
-export default TalentTree
+export default TalentTree;

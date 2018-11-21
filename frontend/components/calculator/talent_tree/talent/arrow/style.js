@@ -1,6 +1,6 @@
-import { StyleSheet } from 'aphrodite/no-important';
-import arrowBody from '../../img/arrow-body.png';
-import arrow from '../../img/arrow.png';
+import { StyleSheet } from "aphrodite/no-important";
+import arrowBody from "assets/images/arrow-body.png";
+import arrow from "assets/images/arrow.png";
 
 export default StyleSheet.create({
   arrow: {
@@ -22,44 +22,44 @@ export default StyleSheet.create({
       bottom: "-10px",
       left: "-4px",
       backgroundImage: `url(${arrow})`
-    },
+    }
   },
   available: {
-    filter: "none",
+    filter: "none"
   },
   picked: {
     filter: "none",
     backgroundPositionX: "-11px",
 
     ":after": {
-      backgroundPositionX: "-19px",
-    },
+      backgroundPositionX: "-19px"
+    }
   },
-  down1: {  
+  down1: {
     top: "53px",
     left: "22px",
-    height: "25px",
+    height: "25px"
   },
   down2: {
     top: "53px",
     left: "22px",
-    height: "109px",
+    height: "109px"
   },
   down3: {
     top: "53px",
     left: "22px",
-    height: "192px",
+    height: "192px"
   },
   right1: {
     top: "21px",
     left: "54px",
     height: "12px",
-    transform: "rotate(-90deg)",
+    transform: "rotate(-90deg)"
   },
   left1: {
     top: "21px",
     right: "54px",
     height: "12px",
-    transform: "rotate(90deg)",
-  },
+    transform: "rotate(90deg)"
+  }
 });
