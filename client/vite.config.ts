@@ -11,11 +11,12 @@ export default defineConfig({
       utils: path.resolve(__dirname, './src/lib/utils'),
       constants: path.resolve(__dirname, './src/lib/constants'),
       components: path.resolve(__dirname, './src/components'),
-      static: path.resolve(__dirname,'./static'),
+      pages: path.resolve(__dirname, './src/pages'),
+      static: path.resolve(__dirname, './static'),
       hooks: path.resolve(__dirname, './src/lib/hooks'),
     },
   },
   server: {
-    port: 3000
-  }
+    port: 3000,
+  },
 })
