@@ -1,5 +1,16 @@
-function App() {
-  return <div className='flex w-full h-8 bg-red-500 text-blue-500'>HELLO WORLD</div>
+import { Header } from 'components/Header/Header'
+import { FC } from 'react'
+import { Outlet } from 'react-router-dom'
+
+type TProps = {}
+
+const App: FC<TProps> = () => {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+    </div>
+  )
 }
 
-export default App
+export { App }
