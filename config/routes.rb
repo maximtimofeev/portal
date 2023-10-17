@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  get "home/index"
-  root to: 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'home#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'example' => 'example#index'
+  get 'admin' => 'admin#index'
+
+  # get "*admin_path", to: 'admin#index'
+  # get "/*path", to: 'home#index'
+
+  # match '/admin', to: 'admin#index', via: :all
+  # scope :admin do
+  #   match '*path', to: 'admin#index', via: :all
+  # end
 end
