@@ -1,20 +1,16 @@
+import { createInertiaApp } from '@inertiajs/react'
+import createServer from '@inertiajs/react/server'
 import ReactDOMServer from 'react-dom/server'
-import { createInertiaApp } from '@inertiajs/inertia-react'
-import cjsCreateServer from '@inertiajs/server'
 
-//@ts-expect-error
-const pages = import.meta.globEagerDefault('../pages/**/*.tsx')
+const pages = import.meta.glob('/pages/client/**/*.tsx', { eager: true })
 
-// Unwrap the CJS module in @inertiajs/server.
-//@ts-expect-error
-const createServer = typeof cjsCreateServer === 'function' ? cjsCreateServer : cjsCreateServer.default
-
-//@ts-expect-error
 createServer((page) =>
   createInertiaApp({
     page,
     render: ReactDOMServer.renderToString,
-    resolve: (name) => pages[`../pages/${name}.jsx`],
+    resolve: (name) => {
+      return pages[`/pages/client/${name}.tsx`]
+    },
     setup: ({ App, props }) => <App {...props} />,
   }),
 )
