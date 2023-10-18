@@ -1,10 +1,17 @@
+import { Layout } from 'components/Layout/Layout'
 import { FC } from 'react'
+import { TSeoProps } from 'types'
 
-type TProps = {}
+type TProps = {
+  seo: TSeoProps
+}
 
-const HomePage: FC<TProps> = (props) => {
-  console.log('props', props)
-  return <div>Home Page mega super page 123</div>
+const HomePage: FC<TProps> = ({ seo }) => {
+  return (
+    <Layout seoProps={seo}>
+      <div>Home Page content</div>
+    </Layout>
+  )
 }
 
 export default HomePage
