@@ -1,14 +1,12 @@
 class Admin::ApplicationController < ::ApplicationController
   include Auth
-  # protect_from_forgery with: :exception
-  # before_action :check_auth
-
   include InertiaCsrf
+
   layout 'admin'
 
-  # def check_auth
-  #   if !signed_in?
-  #     authenticate_admin_user!
-  #   end
-  # end
+  def not_found
+    render inertia: 'ErrorPage', props: {
+      status: 404
+    }, status: 404
+  end
 end

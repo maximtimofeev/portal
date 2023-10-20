@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     }
 
     get '/' => 'home#index'
+    match '*unmatched', to: 'application#not_found', via: :all
   end
+
+  match '*unmatched', to: 'application#not_found', via: :all
 end
