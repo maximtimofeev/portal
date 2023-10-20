@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  layout 'client'
-
   before_action :set_seo_attrs, only: :index
   def index
     render inertia: 'HomePage', props: {

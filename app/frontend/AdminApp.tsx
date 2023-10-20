@@ -1,6 +1,11 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
+import axios from 'axios'
+
+//@ts-expect-error
+const csrfToken = document.querySelector('meta[name=csrf-token]')?.content
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 
 const pages = import.meta.glob('/pages/admin/**/*.tsx')
 
