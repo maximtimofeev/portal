@@ -6,7 +6,7 @@ type TProps = {}
 
 const LoginPage: FC<TProps> = ({}) => {
   const [values, setValues] = useState({
-    email: '',
+    login: '',
     password: '',
   })
 
@@ -30,8 +30,8 @@ const LoginPage: FC<TProps> = ({}) => {
       <input id="first_name" value={values.first_name} onChange={handleChange} />
       <label htmlFor="last_name">Last name:</label>
       <input id="last_name" value={values.last_name} onChange={handleChange} /> */}
-      <label htmlFor="email">Email:</label>
-      <input id="email" value={values.email} onChange={handleChange} />
+      <label htmlFor="login">Login or email:</label>
+      <input id="login" value={values.login} onChange={handleChange} />
       <label htmlFor="password">password:</label>
       <input id="password" type="password" value={values.password} onChange={handleChange} />
       <button type="submit">Submit</button>

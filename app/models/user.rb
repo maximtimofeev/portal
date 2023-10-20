@@ -6,8 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-  validates :first_name, presence: true, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }
-  validates :last_name, presence: true, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }
+  validates :first_name, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }, allow_blank: true
+  validates :last_name, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }, allow_blank:  true
+
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }, format: { with: /\A[\d|\w]+\z/ }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
 
@@ -19,5 +21,9 @@ class User < ApplicationRecord
 
   def password_required?
     @enforce_password_validation || password.present?
+  end
+
+  def self.find_for_database_authentication(auth_hash)
+    self.where("name = :query OR email = :query", query: auth_hash[:login].downcase).first
   end
 end
