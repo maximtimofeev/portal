@@ -22,7 +22,6 @@ const LoginPage: FC<TProps> = ({}) => {
   const handleSubmit: FormEventHandler = (e) => {
     e.preventDefault()
     router.post('/admin/login', { user: values })
-    // router.post('/admin/login', values )
   }
 
   return (

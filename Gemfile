@@ -12,7 +12,8 @@ gem "pg", "~> 1.5"
 gem "puma", "~> 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+# gem "jbuilder"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -37,6 +38,7 @@ gem 'vite_rails'
 gem "inertia_rails", "~> 3.1"
 gem "dotenv-rails", "~> 2.8"
 gem "devise", "~> 4.9"
+gem "kaminari", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -61,6 +63,4 @@ group :test do
 
 end
 
-
-
-
+gem "blueprinter", "~> 0.30.0"
