@@ -1,41 +1,51 @@
-import { ChangeEventHandler, FC, FormEventHandler } from 'react'
-import { useState } from 'react'
-import { router } from '@inertiajs/react'
+import { FC, FormEventHandler, useEffect } from 'react'
+import { useForm } from '@inertiajs/react'
+import { Button, Card, Elevation, FormGroup, InputGroup } from '@blueprintjs/core'
+import { Toaster } from 'components/Toaster/Toaster'
 
-type TProps = {}
+type TProps = {
+  errors: string[]
+}
 
-const LoginPage: FC<TProps> = ({}) => {
-  const [values, setValues] = useState({
+type TCredentials = {
+  login: string
+  password: string
+}
+
+const LoginPage: FC<TProps> = ({ errors }) => {
+  useEffect(() => {
+    errors?.forEach((message) => {
+      Toaster.show({ message })
+    })
+  }, [errors])
+  const { data, setData, post, processing } = useForm<TCredentials>({
     login: '',
     password: '',
   })
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const key = e.target.id
-    const value = e.target.value
-    setValues((values) => ({
-      ...values,
-      [key]: value,
-    }))
-  }
+  const handleChange = (key: keyof TCredentials) => (value: string) => setData(key, value)
 
   const handleSubmit: FormEventHandler = (e) => {
     e.preventDefault()
-    router.post('/admin/login', { user: values })
+    post('/admin/login')
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* <label htmlFor="first_name">First name:</label>
-      <input id="first_name" value={values.first_name} onChange={handleChange} />
-      <label htmlFor="last_name">Last name:</label>
-      <input id="last_name" value={values.last_name} onChange={handleChange} /> */}
-      <label htmlFor="login">Login or email:</label>
-      <input id="login" value={values.login} onChange={handleChange} />
-      <label htmlFor="password">password:</label>
-      <input id="password" type="password" value={values.password} onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
+    <main className="flex w-full h-full justify-center items-center bg-cyan-200">
+      <Card className="rounded-lg" elevation={Elevation.TWO}>
+        <FormGroup label="Login or email" labelFor="login" labelInfo="(required)">
+          <InputGroup id="login" value={data.login} onValueChange={handleChange('login')} />
+        </FormGroup>
+        <FormGroup label="Password" labelFor="password" labelInfo="(required)">
+          <InputGroup id="password" type="password" value={data.password} onValueChange={handleChange('password')} />
+        </FormGroup>
+        <div className="flex w-full justify-center">
+          <Button type="submit" loading={processing} onClick={handleSubmit} disabled={!data.login || !data.password}>
+            Sign in
+          </Button>
+        </div>
+      </Card>
+    </main>
   )
 }
 

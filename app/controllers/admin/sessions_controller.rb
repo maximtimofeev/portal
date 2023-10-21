@@ -16,7 +16,7 @@ class Admin::SessionsController < Devise::SessionsController
       sign_in(@user)
       redirect_to admin_path
     else
-      redirect_to new_admin_user_session_path
+      respond_incorrect_credentials
     end
   end
 
@@ -29,16 +29,21 @@ class Admin::SessionsController < Devise::SessionsController
 
   private
   def sign_in_params
-    params.require(:user).permit(:login, :password)
+    params.permit(:login, :password)
   end
-
 
   def load_user
     @user = User.find_for_database_authentication(login: sign_in_params[:login])
     if @user
       return @user
     else
-      redirect_to new_admin_user_session_path
+      respond_incorrect_credentials
     end
+  end
+
+  def respond_incorrect_credentials 
+    redirect_to new_admin_user_session_path, inertia: {
+      errors: ['Incorrect login or password']
+    }
   end
 end
