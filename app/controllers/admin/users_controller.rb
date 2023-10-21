@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :find_user, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @users = User.page(params[:page])
@@ -9,7 +10,9 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def new
-    render inertia: 'users/UserEditPage'
+    render inertia: 'users/UserEditPage', props: {
+      roles: User.roles.keys
+    }
   end
 
   def create
@@ -21,7 +24,8 @@ class Admin::UsersController < Admin::ApplicationController
 
   def edit
     render inertia: 'users/UserEditPage', props: {
-      user: UserBlueprint.render_as_json(@user)
+      user: UserBlueprint.render_as_json(@user),
+      roles: User.roles.keys
     }
   end
 
@@ -53,7 +57,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def user_params
-    params.permit(:id, :first_name, :last_name, :email, :password, :role)
+    params.permit(:id, :first_name, :last_name, :email, :login, :password, :role)
     .reject { |_, v| v.blank? }
   end
 end

@@ -9,4 +9,8 @@ class Admin::ApplicationController < ::ApplicationController
       status: 404
     }, status: 404
   end
+
+  def current_user
+    current_admin_user
+  end
 end

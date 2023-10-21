@@ -1,14 +1,18 @@
 import { ChangeEventHandler, FC, FormEventHandler } from 'react'
 import { AdminLayout as Layout } from 'components/AdminLayout/AdminLayout'
 import { useForm } from '@inertiajs/react'
+import { Select } from 'components/Select/Select'
 
 type TProps = {
   user: Data.User
+  roles: string[]
 }
 
-const UsersEditPage: FC<TProps> = ({ user, ...props }) => {
-  const { data, setData, patch, post, processing, errors } = useForm<Data.User>(user)
-
+const UsersEditPage: FC<TProps> = ({ user, roles = [] }) => {
+  const { data, setData, patch, post, processing, errors } = useForm<Data.User>({
+    ...user,
+    role: user?.role || 'admin',
+  })
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const key = e.target.id as keyof Data.User
     const value = e.target.value
@@ -43,10 +47,29 @@ const UsersEditPage: FC<TProps> = ({ user, ...props }) => {
           </div>
           <div className="flex flex-col">
             <div className="flex">
+              <label htmlFor="login">Login:</label>
+              <input id="login" value={data.login} onChange={handleChange} />
+            </div>
+            {errors.login && <div>{errors.login}</div>}
+          </div>
+          <div className="flex flex-col">
+            <div className="flex">
               <label htmlFor="email">Email:</label>
               <input id="email" value={data.email} onChange={handleChange} />
             </div>
             {errors.email && <div>{errors.email}</div>}
+          </div>
+          <div className="flex flex-col">
+            <div className="flex">
+              <label htmlFor="role">Role:</label>
+              <Select
+                id="role"
+                value={data.role}
+                onChange={handleChange}
+                options={roles.map((key) => ({ label: key, value: key }))}
+              />
+            </div>
+            {errors.role && <div>{errors.role}</div>}
           </div>
           <div className="flex flex-col">
             <div className="flex">

@@ -1,6 +1,6 @@
 class UserBlueprint < Blueprinter::Base
   identifier :id
-  fields :first_name, :last_name, :email, :role
+  fields :first_name, :last_name, :email, :role, :login
   field :created_at do |user|
     user.created_at.to_i
   end

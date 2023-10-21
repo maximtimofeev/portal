@@ -8,4 +8,4 @@
 
 
 # Create base admin user
-User.create(name: 'admin', email: 'admin@example.com', password: 'adminadmin')
+User.create(login: 'admin', email: 'admin@example.com', password: 'adminadmin')

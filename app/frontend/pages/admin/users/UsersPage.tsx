@@ -22,6 +22,7 @@ const UsersPage: FC<TProps> = ({ users }) => {
               <span className="flex">{user.id}</span>
               <span className="flex flex-1">{`${user.first_name} ${user.last_name}`}</span>
               <span className="flex flex-1">{user.email}</span>
+              <span className="flex flex-1">{user.role}</span>
               <span className="flex flex-1">{format(user.created_at * 1000, DATE_FORMAT_STRING)}</span>
               <span className="flex flex-1">{format(user.last_sign_in_at * 1000, DATETIME_FORMAT_STRING)}</span>
             </div>

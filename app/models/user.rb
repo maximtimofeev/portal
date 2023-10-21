@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   NAME_FORMAT_REGEX = /\A[a-z ,.'-]+\z/
 
+  enum role: %i[admin seo content]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,7 +11,7 @@ class User < ApplicationRecord
   validates :first_name, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }, allow_blank: true
   validates :last_name, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }, allow_blank:  true
 
-  validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }, format: { with: /\A[\d|\w]+\z/ }
+  validates :login, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }, format: { with: /\A[\d|\w]+\z/ }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
 
@@ -24,6 +26,6 @@ class User < ApplicationRecord
   end
 
   def self.find_for_database_authentication(auth_hash)
-    self.where("name = :query OR email = :query", query: auth_hash[:login].downcase).first
+    self.where("login = :query OR email = :query", query: auth_hash[:login].downcase).first
   end
 end
