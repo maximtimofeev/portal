@@ -15,7 +15,7 @@ type TCredentials = {
 const LoginPage: FC<TProps> = ({ errors }) => {
   useEffect(() => {
     errors?.forEach((message) => {
-      Toaster.show({ message })
+      Toaster.show({ message, intent: 'danger' })
     })
   }, [errors])
   const { data, setData, post, processing } = useForm<TCredentials>({
@@ -31,7 +31,7 @@ const LoginPage: FC<TProps> = ({ errors }) => {
   }
 
   return (
-    <main className="flex w-full h-full justify-center items-center bg-cyan-200">
+    <main className="flex w-full h-full justify-center items-center bg-sky-100">
       <Card className="rounded-lg" elevation={Elevation.TWO}>
         <FormGroup label="Login or email" labelFor="login" labelInfo="(required)">
           <InputGroup id="login" value={data.login} onValueChange={handleChange('login')} />

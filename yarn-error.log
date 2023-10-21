@@ -1,5 +1,5 @@
 Arguments: 
-  /home/maxim/.nvm/versions/node/v16.13.1/bin/node /usr/bin/yarn add @types/blueprintjs
+  /home/maxim/.nvm/versions/node/v16.13.1/bin/node /usr/bin/yarn add @blueprintjs/tooltip2
 
 PATH: 
   /home/maxim/.rvm/gems/ruby-3.2.2/bin:/home/maxim/.rvm/gems/ruby-3.2.2@global/bin:/home/maxim/.rvm/rubies/ruby-3.2.2/bin:/home/maxim/.rvm/bin:/home/maxim/.nvm/versions/node/v16.13.1/bin:/home/maxim/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/maxim/.local/bin:/home/maxim/.local/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fblueprintjs: Not found
+  Error: https://registry.yarnpkg.com/@blueprintjs%2ftooltip2: Not found
       at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66145:18)
       at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:390:28)
@@ -40,6 +40,7 @@ npm manifest:
       "@blueprintjs/core": "^5.5.1",
       "@blueprintjs/datetime2": "^2.2.1",
       "@blueprintjs/icons": "^5.2.1",
+      "@blueprintjs/popover2": "^2.0.16",
       "@blueprintjs/select": "^5.0.16",
       "@blueprintjs/table": "^5.0.16",
       "@inertiajs/inertia": "^0.11.1",
@@ -161,6 +162,15 @@ Lockfile:
     integrity sha512-JAkcDQks4wZoZAcfKeId4/S4I0cEiuNhFZ88Kc+RQkHNUGD78wuANNQvPKeN5j0QXjAxYZ3qMsxKOdJ9YwmZ/A==
     dependencies:
       change-case "^4.1.2"
+      classnames "^2.3.1"
+      tslib "~2.5.0"
+  
+  "@blueprintjs/popover2@^2.0.16":
+    version "2.0.16"
+    resolved "https://registry.yarnpkg.com/@blueprintjs/popover2/-/popover2-2.0.16.tgz#208d248efd6e129ba5580707fffde57cb2527365"
+    integrity sha512-WFQdvhybzVHbkwFt0TdQ285XGP1PN3XH+x0TgMby3j5xBUPBd6UDZ6pZup2ZCMfxB9GGglyAip5ZFM7tRWW6Vg==
+    dependencies:
+      "@blueprintjs/core" "^5.5.1"
       classnames "^2.3.1"
       tslib "~2.5.0"
   

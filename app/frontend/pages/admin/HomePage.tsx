@@ -1,18 +1,12 @@
-import { router } from '@inertiajs/react'
-import { Button } from 'components/Button/Button'
 import { FC } from 'react'
 import { AdminLayout as Layout } from 'components/AdminLayout/AdminLayout'
 
 type TProps = {}
 
-const HomePage: FC<TProps> = (props) => {
-  const logout = () => {
-    router.delete('admin/logout')
-  }
+const HomePage: FC<TProps> = () => {
   return (
     <Layout>
       <div>Admin home Page</div>
-      <Button onClick={logout}>logout</Button>
     </Layout>
   )
 }

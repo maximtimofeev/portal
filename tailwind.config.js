@@ -18,6 +18,10 @@ export default {
       backgroundColor: {
         transparent: 'transparent',
       },
+      boxShadow: {
+        main: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.25), 0 0.25rem 1.25rem rgba(0, 0, 0, 0.3)',
+        secondary: '0 0 0.25rem rgba(0, 0, 0, 0.25)',
+      },
       borderRadius: {
         px: '1px',
         half: '50%',

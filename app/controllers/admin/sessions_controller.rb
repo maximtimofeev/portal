@@ -22,7 +22,7 @@ class Admin::SessionsController < Devise::SessionsController
 
   # DELETE /admin/logout
   def destroy
-    sign_out
+    sign_out current_admin_user
     redirect_to new_admin_user_session_path
   end
 

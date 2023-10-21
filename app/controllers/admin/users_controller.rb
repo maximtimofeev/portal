@@ -5,6 +5,7 @@ class Admin::UsersController < Admin::ApplicationController
   def index
     @users = User.page(params[:page])
     render inertia: 'users/UsersPage', props: {
+      title: 'Users',
       users: UserBlueprint.render_as_json(@users)
     }
   end
