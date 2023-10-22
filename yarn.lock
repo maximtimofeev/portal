@@ -87,16 +87,6 @@
     classnames "^2.3.1"
     tslib "~2.5.0"
 
-"@blueprintjs/table@^5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@blueprintjs/table/-/table-5.0.16.tgz#2a2e68799abf2acd434f3856497e7fca6d6bcbc1"
-  integrity sha512-NPaD9Ja3Tdd8E5zblFVr8mc1LP8ltJdkk2V0t1fH/6oSEjPIkjwJCUcRu6x0byWL5iUFtXNiCvHFNnBXLmGFCQ==
-  dependencies:
-    "@blueprintjs/core" "^5.5.1"
-    classnames "^2.3.1"
-    react-innertext "^1.1.5"
-    tslib "~2.5.0"
-
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
@@ -1898,11 +1888,6 @@ react-i18next@^13.3.1:
   dependencies:
     "@babel/runtime" "^7.22.5"
     html-parse-stringify "^3.0.1"
-
-react-innertext@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-innertext/-/react-innertext-1.1.5.tgz#8147ac54db3f7067d95f49e2d2c05a720d27d8d0"
-  integrity sha512-PWAqdqhxhHIv80dT9znP2KvS+hfkbRovFp4zFYHFFlOoQLRiawIic81gKb3U1wEyJZgMwgs3JoLtwryASRWP3Q==
 
 react-is@^16.13.1:
   version "16.13.1"

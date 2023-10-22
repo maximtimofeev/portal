@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { AdminLayout as Layout } from 'components/AdminLayout/AdminLayout'
+import { Layout } from '../components/Layout/Layout'
 
 type TProps = {}
 

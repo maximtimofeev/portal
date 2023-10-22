@@ -1,6 +1,6 @@
-import { Layout } from 'components/Layout/Layout'
 import { FC } from 'react'
 import { TSeoProps } from 'types'
+import { Layout } from '../components/Layout/Layout'
 
 type TProps = {
   seo: TSeoProps

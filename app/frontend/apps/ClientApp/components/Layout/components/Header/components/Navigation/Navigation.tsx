@@ -1,5 +1,5 @@
+import { Button } from '@blueprintjs/core'
 import { Link } from '@inertiajs/react'
-import { Button } from 'components/Button/Button'
 import { FC } from 'react'
 
 type TProps = {}

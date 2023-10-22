@@ -8,14 +8,13 @@
 
     "baseUrl": "app/frontend",
     "paths": {
+      "apps/*": ["apps/*"],
       "lib/*": ["lib/*"],
       "utils/*": ["lib/utils/*"],
       "constants/*": ["lib/constants/*"],
       "components/*": ["components/*"],
-      "pages/*": ["pages/*"],
       "images/*": ["images/*"],
-      "styles/*": ["styles/*"],
-      "locales/*": ["locales/*"]
+      "styles/*": ["styles/*"]
     },
 
     /* Bundler mode */

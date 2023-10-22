@@ -5,7 +5,7 @@ import { Aside } from './components/Aside/Aside'
 
 type TProps = {} & PropsWithChildren
 
-const AdminLayout: FC<TProps> = ({ children }) => {
+const Layout: FC<TProps> = ({ children }) => {
   return (
     <div className="flex w-full min-h-full">
       <Aside />
@@ -18,4 +18,4 @@ const AdminLayout: FC<TProps> = ({ children }) => {
   )
 }
 
-export { AdminLayout }
+export { Layout }

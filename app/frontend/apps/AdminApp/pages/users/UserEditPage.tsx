@@ -1,7 +1,8 @@
 import { ChangeEventHandler, FC, FormEventHandler } from 'react'
-import { AdminLayout as Layout } from 'components/AdminLayout/AdminLayout'
 import { useForm } from '@inertiajs/react'
-import { Select } from 'components/Select/Select'
+import { Layout } from 'apps/AdminApp/components/Layout/Layout'
+import { Select } from '@blueprintjs/select'
+import { Button } from '@blueprintjs/core'
 
 type TProps = {
   user: Data.User
@@ -62,12 +63,13 @@ const UsersEditPage: FC<TProps> = ({ user, roles = [] }) => {
           <div className="flex flex-col">
             <div className="flex">
               <label htmlFor="role">Role:</label>
-              <Select
-                id="role"
-                value={data.role}
-                onChange={handleChange}
-                options={roles.map((key) => ({ label: key, value: key }))}
-              />
+              {/* <Select
+                items={roles.map((key) => ({ label: key, value: key }))}
+                onItemSelect={(option => setData('role', option.value))}
+                itemRenderer={}
+                >
+                  <Button text={data?.role ?? ''}></Button>
+                </Select> */}
             </div>
             {errors.role && <div>{errors.role}</div>}
           </div>

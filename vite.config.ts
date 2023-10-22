@@ -8,15 +8,14 @@ export default defineConfig({
   plugins: [RubyPlugin(), FullReload(['config/routes.rb', 'app/views/**/*'], { delay: 200 }), react()],
   resolve: {
     alias: {
+      apps: path.resolve(__dirname, './app/frontend/apps'),
       components: path.resolve(__dirname, './app/frontend/components'),
-      pages: path.resolve(__dirname, './app/frontend/pages'),
       lib: path.resolve(__dirname, './app/frontend/lib'),
       utils: path.resolve(__dirname, './app/frontend/lib/utils'),
       constants: path.resolve(__dirname, './app/frontend/lib/constants'),
       images: path.resolve(__dirname, './app/frontend/images'),
       hooks: path.resolve(__dirname, './app/frontend/lib/hooks'),
       styles: path.resolve(__dirname, './app/frontend/styles'),
-      locales: path.resolve(__dirname, './app/frontend/lib/locales'),
     },
   },
   build: {

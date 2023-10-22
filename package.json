@@ -7,12 +7,19 @@
     "lint:fix": "yarn tsc --noEmit && yarn eslint 'src' --ext ts,tsx --fix && yarn stylelint --fix",
     "preview": "vite preview"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "yarn lint"
+  },
   "dependencies": {
     "@blueprintjs/core": "^5.5.1",
     "@blueprintjs/datetime2": "^2.2.1",
     "@blueprintjs/icons": "^5.2.1",
     "@blueprintjs/select": "^5.0.16",
-    "@blueprintjs/table": "^5.0.16",
     "@inertiajs/inertia": "^0.11.1",
     "@inertiajs/inertia-react": "^0.8.1",
     "@inertiajs/progress": "^0.2.7",

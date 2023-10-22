@@ -1,15 +1,15 @@
 import React from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
-import 'locales/client/i18n'
+import './locales/i18n'
 
-const pages = import.meta.glob('/pages/client/**/*.tsx')
+const pages = import.meta.glob('./pages/**/*.tsx')
 
 const createApp = () =>
   createInertiaApp({
     resolve: async (name) => {
       //@ts-expect-error
-      const page = (await pages[`/pages/client/${name}.tsx`]()).default
+      const page = (await pages[`./pages/${name}.tsx`]()).default
 
       if (!page) throw new Error(`Unknown page ${name}. Is it located under 'pages' with a .tsx extension?`)
 
