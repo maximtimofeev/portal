@@ -1,8 +1,26 @@
 {
-  "translations": {
+  "translation": {
     "forms": {
       "login": {
         "button": "Sign en"
+      }
+    },
+    "tables": {
+      "users": {
+        "headers": {
+          "id": "Id",
+          "first_name": "First name",
+          "last_name": "Last name",
+          "login": "Login",
+          "email": "Email",
+          "created_at": "Created at",
+          "last_sign_in_at": "Last sign in",
+          "buttons": "Actions"
+        },
+        "tooltips": {
+          "edit": "Edit user",
+          "delete": "Delete user"
+        }
       }
     }
   }

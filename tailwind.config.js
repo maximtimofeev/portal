@@ -7,10 +7,10 @@ export default {
   corePlugins: {
     preflight: false,
     fontFamily: false,
-    fontSize: false,
+    // fontSize: false,
     fontStyle: false,
     fontVariantNumeric: false,
-    fontWeight: false,
+    // fontWeight: false,
     fontSmoothing: false,
   },
   theme: {

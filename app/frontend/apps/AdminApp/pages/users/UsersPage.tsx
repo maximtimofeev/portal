@@ -1,20 +1,25 @@
 import { FC } from 'react'
 import { Link } from '@inertiajs/react'
-import { UsersTable } from 'components/tables/UsersTable/UsersTable'
-import { Layout } from 'admin/components/Layout/Layout'
+import { UsersTable } from 'admin/components/tables/UsersTable/UsersTable'
+import { PageHeader } from 'admin/components/PageHeader/PageHeader'
+import { Button, Intent } from '@blueprintjs/core'
 
 type TProps = {
   users: Data.User[]
 }
 
-const UsersPage: FC<TProps> = ({}) => {
+const UsersPage: FC<TProps> = ({ users }) => {
   return (
-    <Layout>
-      <div className="flex w-full mb-6 justify-end">
-        <Link href="/admin/users/new">create new</Link>
-      </div>
-      <UsersTable />
-    </Layout>
+    <>
+      <PageHeader>
+        <Link href="/admin/users/new">
+          <Button intent={Intent.SUCCESS} large>
+            Create new
+          </Button>
+        </Link>
+      </PageHeader>
+      <UsersTable data={users} />
+    </>
   )
 }
 
