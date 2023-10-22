@@ -1,5 +1,4 @@
+import { createAdminApp } from 'admin/AdminApp'
 import '../styles/index.css'
-
-import { createAdminApp } from '../apps/AdminApp/AdminApp'
 
 createAdminApp()

@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [RubyPlugin(), FullReload(['config/routes.rb', 'app/views/**/*'], { delay: 200 }), react()],
   resolve: {
     alias: {
-      apps: path.resolve(__dirname, './app/frontend/apps'),
+      admin: path.resolve(__dirname, './app/frontend/apps/AdminApp'),
+      client: path.resolve(__dirname, './app/frontend/apps/ClientApp'),
       components: path.resolve(__dirname, './app/frontend/components'),
       lib: path.resolve(__dirname, './app/frontend/lib'),
       utils: path.resolve(__dirname, './app/frontend/lib/utils'),

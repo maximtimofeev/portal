@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from '@inertiajs/react'
 import { UsersTable } from 'components/tables/UsersTable/UsersTable'
-import { Layout } from 'apps/AdminApp/components/Layout/Layout'
+import { Layout } from 'admin/components/Layout/Layout'
 
 type TProps = {
   users: Data.User[]

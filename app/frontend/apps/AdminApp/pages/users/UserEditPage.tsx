@@ -1,8 +1,6 @@
 import { ChangeEventHandler, FC, FormEventHandler } from 'react'
 import { useForm } from '@inertiajs/react'
-import { Layout } from 'apps/AdminApp/components/Layout/Layout'
-import { Select } from '@blueprintjs/select'
-import { Button } from '@blueprintjs/core'
+import { Layout } from 'admin/components/Layout/Layout'
 
 type TProps = {
   user: Data.User

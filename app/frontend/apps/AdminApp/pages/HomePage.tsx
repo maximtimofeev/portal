@@ -1,5 +1,5 @@
+import { Layout } from 'admin/components/Layout/Layout'
 import { FC } from 'react'
-import { Layout } from '../components/Layout/Layout'
 
 type TProps = {}
 
