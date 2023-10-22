@@ -1,6 +1,7 @@
 import React from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
+import 'locales/client/i18n'
 
 const pages = import.meta.glob('/pages/client/**/*.tsx')
 

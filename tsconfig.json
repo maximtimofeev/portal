@@ -14,7 +14,8 @@
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
       "images/*": ["images/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "locales/*": ["locales/*"]
     },
 
     /* Bundler mode */

@@ -16,9 +16,11 @@ export default defineConfig({
       images: path.resolve(__dirname, './app/frontend/images'),
       hooks: path.resolve(__dirname, './app/frontend/lib/hooks'),
       styles: path.resolve(__dirname, './app/frontend/styles'),
+      locales: path.resolve(__dirname, './app/frontend/lib/locales'),
     },
   },
   build: {
+    target: 'esnext',
     manifest: true,
     rollupOptions: {
       input: '/app/frontend/entrypoints/client.tsx',

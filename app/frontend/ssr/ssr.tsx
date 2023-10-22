@@ -1,6 +1,7 @@
 import { createInertiaApp } from '@inertiajs/react'
 import createServer from '@inertiajs/react/server'
 import ReactDOMServer from 'react-dom/server'
+import 'locales/client/i18n'
 
 const pages = import.meta.glob('/pages/client/**/*.tsx', { eager: true })
 

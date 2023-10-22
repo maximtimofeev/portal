@@ -12,6 +12,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def new
     render inertia: 'users/UserEditPage', props: {
+      title: 'New user',
       roles: User.roles.keys
     }
   end
@@ -25,6 +26,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def edit
     render inertia: 'users/UserEditPage', props: {
+      title: 'Edit user',
       user: UserBlueprint.render_as_json(@user),
       roles: User.roles.keys
     }

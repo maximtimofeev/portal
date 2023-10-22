@@ -10,7 +10,7 @@ const Header: FC<TProps> = ({}) => {
   return (
     <header className="flex flex-none fixed z-1 w-[calc(100vw-15rem)] top-0 left-60 h-12 bg-slate-100 justify-between items-center px-3">
       <div className="flex">
-        <H2>{page.props.title}</H2>
+        <H2>{page.props.title ?? ''}</H2>
       </div>
       <div className="flex">
         <Tooltip content="Sign out">
