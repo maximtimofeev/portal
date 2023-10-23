@@ -6,6 +6,7 @@ import { AdminPageBaseProps } from 'types'
 import { usePage } from '@inertiajs/react'
 import { Toaster } from 'components/Toaster/Toaster'
 import { Intent } from '@blueprintjs/core'
+import { Alert } from './components/Alert/Alert'
 
 type TProps = {} & PropsWithChildren
 
@@ -16,7 +17,7 @@ const Layout: FC<TProps> = ({ children }) => {
 
   useEffect(() => {
     if (has_flash) {
-      Toaster.show({ message: flash.notice, intent: Intent.NONE, timeout: 3000, className: 'left-30' })
+      Toaster.show({ message: flash.notice, intent: Intent.NONE, timeout: 3000 })
     }
   }, [flash, has_flash])
   return (
@@ -27,6 +28,7 @@ const Layout: FC<TProps> = ({ children }) => {
         <main className="flex flex-col flex-1 mt-12 bg-sky-100">{children}</main>
         <Footer />
       </div>
+      <Alert />
     </div>
   )
 }

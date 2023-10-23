@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from '@inertiajs/react'
 import { PageHeader } from 'admin/components/PageHeader/PageHeader'
-import { Alert, Button, Intent } from '@blueprintjs/core'
+import { Button, Intent } from '@blueprintjs/core'
 import { UsersTable } from './components/UsersTable/UsersTable'
 import { useTranslation } from 'react-i18next'
 
@@ -21,8 +21,6 @@ const UsersContent: FC<TProps> = ({ users }) => {
         </Link>
       </PageHeader>
       <UsersTable data={users} />
-
-      <Alert cancelButtonText={t('buttons.cancel')} confirmButtonText={t('buttons.delete')}></Alert>
     </>
   )
 }

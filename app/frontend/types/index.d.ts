@@ -16,6 +16,7 @@ type FlashProps = {
   has_flash: boolean
   flash: {
     notice?: string
+    alert?: string
   }
 }
 

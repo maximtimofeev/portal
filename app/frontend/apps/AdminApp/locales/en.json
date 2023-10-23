@@ -7,8 +7,10 @@
     },
     "buttons": {
       "cancel": "Cancel",
-      "delete": "Confirm delete",
-      "create": "Create new"
+      "close": "Close",
+      "create": "Create new",
+      "delete": "Delete",
+      "confirm": "Confirm"
     },
     "tables": {
       "users": {

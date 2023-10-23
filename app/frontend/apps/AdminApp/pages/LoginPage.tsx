@@ -12,7 +12,7 @@ type TCredentials = {
 const LoginPage: FC<AdminPageBaseProps> = ({ has_flash, flash }) => {
   useEffect(() => {
     if (has_flash) {
-      Toaster.show({ message: flash.notice, intent: 'danger' })
+      Toaster.show({ message: flash.notice || flash.alert, intent: 'danger' })
     }
   }, [flash, has_flash])
   const { data, setData, post, processing } = useForm<TCredentials>({
