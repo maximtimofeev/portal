@@ -1,6 +1,7 @@
 class Admin::ApplicationController < ::ApplicationController
   include Auth
   include InertiaCsrf
+  include InertiaFlash
 
   layout 'admin'
 

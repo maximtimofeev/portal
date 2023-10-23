@@ -26,6 +26,9 @@ export default {
         px: '1px',
         half: '50%',
       },
+      spacing: {
+        30: '7.5rem',
+      },
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
       },

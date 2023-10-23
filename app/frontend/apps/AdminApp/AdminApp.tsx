@@ -17,7 +17,10 @@ const createAdminApp = () =>
 
       if (!page) throw new Error(`Unknown page ${name}. Is it located under 'pages' with a .tsx extension?`)
       //@ts-expect-error
-      page.default.layout = page.default.layout || ((page) => <Layout children={page} />)
+      page.default.layout = name.startsWith('Login')
+        ? undefined
+        : //@ts-expect-error
+          page.default.layout || ((page) => <Layout children={page} />)
 
       return page
     },

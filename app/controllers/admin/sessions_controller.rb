@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+  include InertiaCsrf
+  include InertiaFlash
+
   layout 'admin'
   before_action :sign_in_params, only: :create
   before_action :load_user, only: :create
@@ -42,8 +45,6 @@ class Admin::SessionsController < Devise::SessionsController
   end
 
   def respond_incorrect_credentials 
-    redirect_to new_admin_user_session_path, inertia: {
-      errors: ['Incorrect login or password']
-    }
+    redirect_to new_admin_user_session_path, notice: "Incorrect email or password"
   end
 end

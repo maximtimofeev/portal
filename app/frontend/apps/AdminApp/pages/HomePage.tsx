@@ -1,4 +1,3 @@
-import { Layout } from 'admin/components/Layout/Layout'
 import { FC } from 'react'
 
 type TProps = {}

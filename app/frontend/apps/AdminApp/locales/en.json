@@ -5,6 +5,11 @@
         "button": "Sign en"
       }
     },
+    "buttons": {
+      "cancel": "Cancel",
+      "delete": "Confirm delete",
+      "create": "Create new"
+    },
     "tables": {
       "users": {
         "headers": {

@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::ApplicationController
   def new
     render inertia: 'users/UserEditPage', props: {
       title: 'New user',
-      roles: User.roles.keys
+      roles: User.roles.keys,
     }
   end
 
@@ -51,7 +51,7 @@ class Admin::UsersController < Admin::ApplicationController
       service.user.save
       redirect_to admin_users_path
     else
-      redirect_to return_path, inertia: { errors: service.errors }
+      redirect_to return_path, inertia: { errors: service.errors }, notice: "Failed to create or update user"
     end
   end
 

@@ -1,4 +1,4 @@
-import { Button, Divider, Intent, Popover, Tooltip } from '@blueprintjs/core'
+import { Alert, Button, Divider, Intent, Popover, Tooltip } from '@blueprintjs/core'
 import { router } from '@inertiajs/react'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -18,7 +18,8 @@ const Actions: FC<TProps> = ({ user }) => {
       {/* <Tooltip content={t('tables.users.tooltips.delete')}>
                   </Tooltip> */}
       <Popover>
-        <Button icon="trash" intent={Intent.DANGER} onClick={() => router.delete(`/admin/users/${user.id}`)} />
+        {/* <Button icon="trash" intent={Intent.DANGER} onClick={() => router.delete(`/admin/users/${user.id}`)} /> */}
+        <Button icon="trash" intent={Intent.DANGER} onClick={() => {}} />
       </Popover>
     </div>
   )
