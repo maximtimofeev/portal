@@ -1,17 +1,21 @@
 import { FC, PropsWithChildren } from 'react'
-import { Header } from './components/Header/Header'
-import { Footer } from './components/Footer/Footer'
+import { usePage } from '@inertiajs/react'
 import { TSeoProps } from 'types'
+
 import { AppHead } from './components/AppHead/AppHead'
+import { Footer } from './components/Footer/Footer'
+import { Header } from './components/Header/Header'
 
-type TProps = {
-  seoProps: TSeoProps
-} & PropsWithChildren
+type TProps = {} & PropsWithChildren
 
-const Layout: FC<TProps> = ({ seoProps, children }) => {
+const Layout: FC<TProps> = ({ children }) => {
+  const {
+    props: { seo },
+  } = usePage<{ seo: TSeoProps }>()
+
   return (
-    <div className="flex w-full flex-col min-h-full">
-      <AppHead seo={seoProps} />
+    <div className="flex min-h-full w-full flex-col">
+      <AppHead seo={seo} />
       <Header />
       <main className="flex flex-1 flex-col">{children}</main>
       <Footer />

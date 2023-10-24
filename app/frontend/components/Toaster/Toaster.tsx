@@ -1,10 +1,13 @@
-import { OverlayToasterProps, OverlayToaster } from '@blueprintjs/core'
 import { createRoot } from 'react-dom/client'
+import { OverlayToaster, OverlayToasterProps } from '@blueprintjs/core'
 
 function createToaster(props?: OverlayToasterProps, container = document.body) {
   const containerElement = document.createElement('div')
+
   container.appendChild(containerElement)
+
   const root = createRoot(containerElement)
+
   return new Promise<OverlayToaster>((resolve, reject) => {
     root.render(
       <OverlayToaster

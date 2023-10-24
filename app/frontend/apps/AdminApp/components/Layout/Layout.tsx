@@ -1,12 +1,12 @@
 import { FC, PropsWithChildren, useEffect } from 'react'
-import { Header } from './components/Header/Header'
-import { Footer } from './components/Footer/Footer'
-import { Aside } from './components/Aside/Aside'
-import { AdminPageBaseProps } from 'types'
+import { Intent } from '@blueprintjs/core'
 import { usePage } from '@inertiajs/react'
 import { Toaster } from 'components/Toaster/Toaster'
-import { Intent } from '@blueprintjs/core'
+import { AdminPageBaseProps } from 'types'
+
 import { Alert } from './components/Alert/Alert'
+import { Aside } from './components/Aside/Aside'
+import { Header } from './components/Header/Header'
 
 type TProps = {} & PropsWithChildren
 
@@ -20,13 +20,13 @@ const Layout: FC<TProps> = ({ children }) => {
       Toaster.show({ message: flash.notice, intent: Intent.NONE, timeout: 3000 })
     }
   }, [flash, has_flash])
+
   return (
-    <div className="flex w-full min-h-full">
+    <div className="flex min-h-full w-full">
       <Aside />
-      <div className="flex flex-1 min-h-full flex-col ml-60">
+      <div className="ml-60 flex min-h-full flex-1 flex-col">
         <Header />
-        <main className="flex flex-col flex-1 mt-12 bg-sky-100">{children}</main>
-        <Footer />
+        <main className="mt-12 flex flex-1 flex-col bg-sky-100">{children}</main>
       </div>
       <Alert />
     </div>

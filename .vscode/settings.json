@@ -7,5 +7,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "tailwindCSS.experimental.classRegex": [
     "ctl\\(`([^`]*)" // ctl`...`
+  ],
+  "i18n-ally.localesPaths": [
+    "config/locales",
+    "app/frontend/apps/AdminApp/locales",
+    "app/frontend/apps/ClientApp/locales"
   ]
 }

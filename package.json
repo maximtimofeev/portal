@@ -3,14 +3,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "yarn tsc --noEmit && yarn eslint 'src' --ext ts,tsx && yarn stylelint",
-    "lint:fix": "yarn tsc --noEmit && yarn eslint 'src' --ext ts,tsx --fix && yarn stylelint --fix",
+    "lint": "yarn tsc --noEmit && yarn eslint 'app/frontend' --ext ts,tsx",
+    "lint:fix": "yarn tsc --noEmit && yarn eslint 'app/frontend' --ext ts,tsx --fix",
     "preview": "vite preview"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "yarn lint"
@@ -31,7 +26,6 @@
     "autoprefixer": "^10.4.15",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
-    "eslint-config-prettier": "^9.0.0",
     "framer-motion": "^10.16.4",
     "i18next": "^23.6.0",
     "path": "^0.12.7",
@@ -54,9 +48,16 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.11",
     "vite-plugin-ruby": "^3.2.2"

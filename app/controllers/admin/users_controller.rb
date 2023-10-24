@@ -40,9 +40,12 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def destroy
-    notice = @user.destroy ? 'User was deleted' : 'Failed to delete user'
-    redirect_to admin_users_path, notice: notice
-    
+    if @user == current_user
+      redirect_to admin_users_path, notice: 'You can not delete yourself'
+    else
+      notice = @user.destroy ? 'User was deleted' : 'Failed to delete user'
+      redirect_to admin_users_path, notice: notice
+    end
   end
 
   private

@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { AlertProps, Alert as BlueprintAlert, Intent } from '@blueprintjs/core'
-import { Text } from 'components/Text/Text'
-import { useAlertController } from 'admin/controllers/alertsController'
 import { useTranslation } from 'react-i18next'
+import { Alert as BlueprintAlert, AlertProps, Intent } from '@blueprintjs/core'
+import { useAlertController } from 'admin/controllers/alertsController'
+import { Text } from 'components/Text/Text'
 
 const Alert: FC<{}> = () => {
   const { t } = useTranslation()
@@ -19,21 +19,25 @@ const Alert: FC<{}> = () => {
       if (alert?.onCancel) {
         alert.onCancel()
       }
+
       clearAlert()
     },
   }
 
   if (alert?.onConfirm) {
     alertProps.confirmButtonText = alert.onConfirm?.buttonText ?? t('buttons.confirm')
+
     alertProps.onConfirm = () => {
       alert.onConfirm?.callback()
       clearAlert()
     }
   }
+
   return (
     <BlueprintAlert {...alertProps}>
       <Text variant="paragraph">{alert?.message ?? ''}</Text>
     </BlueprintAlert>
   )
 }
+
 export { Alert }

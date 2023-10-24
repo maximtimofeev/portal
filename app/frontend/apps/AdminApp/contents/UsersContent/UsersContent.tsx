@@ -1,26 +1,34 @@
 import { FC } from 'react'
-import { Link } from '@inertiajs/react'
-import { PageHeader } from 'admin/components/PageHeader/PageHeader'
-import { Button, Intent } from '@blueprintjs/core'
-import { UsersTable } from './components/UsersTable/UsersTable'
 import { useTranslation } from 'react-i18next'
+import { Button, Intent } from '@blueprintjs/core'
+import { Link, usePage } from '@inertiajs/react'
+import { PageHeader } from 'admin/components/PageHeader/PageHeader'
+import { AdminPageBaseProps } from 'types'
 
-type TProps = {
+import { UsersTable } from './components/UsersTable/UsersTable'
+
+type TPageProps = {
   users: Data.User[]
-}
+} & AdminPageBaseProps
 
-const UsersContent: FC<TProps> = ({ users }) => {
+const UsersContent: FC<{}> = () => {
+  const {
+    props: { users },
+  } = usePage<TPageProps>()
   const { t } = useTranslation()
+
   return (
     <>
       <PageHeader>
         <Link href="/admin/users/new">
           <Button intent={Intent.SUCCESS} large>
-            Create new
+            {t('buttons.create')}
           </Button>
         </Link>
       </PageHeader>
-      <UsersTable data={users} />
+      <div className="flex flex-1 flex-col justify-start bg-slate-100">
+        <UsersTable data={users} />
+      </div>
     </>
   )
 }

@@ -1,10 +1,10 @@
+import { FC } from 'react'
 import { Button } from '@blueprintjs/core'
 import { Link } from '@inertiajs/react'
-import { FC } from 'react'
 
 type TProps = {}
 
-const Navigation: FC<TProps> = ({}) => {
+const Navigation: FC<TProps> = () => {
   return (
     <nav className="flex">
       <li className="flex">

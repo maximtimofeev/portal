@@ -1,14 +1,14 @@
+import { FC } from 'react'
 import { Button, H2, Tooltip } from '@blueprintjs/core'
 import { router, usePage } from '@inertiajs/react'
-import { FC } from 'react'
 
 type TProps = {}
 
-const Header: FC<TProps> = ({}) => {
+const Header: FC<TProps> = () => {
   const page = usePage<{ title: string }>()
 
   return (
-    <header className="flex flex-none fixed z-1 w-[calc(100vw-15rem)] top-0 left-60 h-12 bg-slate-100 justify-between items-center px-3 shadow-secondary">
+    <header className="fixed left-60 top-0 z-1 flex h-12 w-[calc(100vw-15rem)] flex-none items-center justify-between bg-slate-100 px-3 shadow-secondary">
       <div className="flex">
         <H2>{page.props.title ?? ''}</H2>
       </div>

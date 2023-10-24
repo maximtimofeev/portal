@@ -1,17 +1,26 @@
 import React from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
-import 'client/locales/i18n'
+import { TInertiaPage } from 'types'
 
-const pages = import.meta.glob('client/pages/**/*.tsx')
+import { Layout } from './components/Layout/Layout'
+
+import 'client/locales/i18n'
 
 const createClientApp = () =>
   createInertiaApp({
-    resolve: async (name) => {
-      //@ts-expect-error
-      const page = (await pages[`/apps/ClientApp/pages/${name}.tsx`]()).default
+    resolve: (name) => {
+      const pages = import.meta.glob<TInertiaPage>('client/pages/**/*.tsx', {
+        eager: true,
+      })
+
+      let page = pages[`/apps/ClientApp/pages/${name}.tsx`]
 
       if (!page) throw new Error(`Unknown page ${name}. Is it located under 'pages' with a .tsx extension?`)
+
+      if (!page.default.layout) {
+        page.default.layout = (page) => <Layout>{page}</Layout>
+      }
 
       return page
     },
@@ -21,6 +30,7 @@ const createClientApp = () =>
           <App {...props} />
         </React.StrictMode>
       )
+
       if (import.meta.env.PROD) {
         hydrateRoot(el, appComponent)
       } else {

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   NAME_FORMAT_REGEX = /\A[a-z ,.'-]+\z/
+  EMAIL_REGEX = /\A\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+\z/
 
   enum role: %i[admin seo content]
 
@@ -12,7 +13,7 @@ class User < ApplicationRecord
   validates :last_name, length: { maximum: 50 }, format: { with: NAME_FORMAT_REGEX }, allow_blank:  true
 
   validates :login, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }, format: { with: /\A[\d|\w]+\z/ }
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
 
   def enforce_password_validation

@@ -1,5 +1,5 @@
-import { Head } from '@inertiajs/react'
 import { FC } from 'react'
+import { Head } from '@inertiajs/react'
 import { TSeoProps } from 'types'
 
 type TProps = {

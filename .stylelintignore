@@ -1,0 +1,6 @@
+// .stylelintignore
+/node_modules/
+
+*.cjs
+*.json
+*.txt

@@ -2,7 +2,14 @@
   "translation": {
     "forms": {
       "login": {
-        "button": "Sign en"
+        "fields": {
+          "login": "Login or email",
+          "password": "Password"
+        },
+        "button": "Sign in"
+      },
+      "labelInfo": {
+        "required": "required"
       }
     },
     "buttons": {
@@ -10,16 +17,19 @@
       "close": "Close",
       "create": "Create new",
       "delete": "Delete",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "save": "Save"
     },
-    "tables": {
-      "users": {
-        "headers": {
+    "data": {
+      "user": {
+        "fields": {
           "id": "Id",
           "first_name": "First name",
           "last_name": "Last name",
           "login": "Login",
           "email": "Email",
+          "password": "Password",
+          "role": "Role",
           "created_at": "Created at",
           "last_sign_in_at": "Last sign in",
           "buttons": "Actions"
@@ -27,6 +37,9 @@
         "tooltips": {
           "edit": "Edit user",
           "delete": "Delete user"
+        },
+        "buttons": {
+          "select_role": "Select role"
         }
       }
     }

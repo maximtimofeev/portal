@@ -1,6 +1,6 @@
+import { FC } from 'react'
 import { Button, ButtonProps } from '@blueprintjs/core'
 import { Link } from '@inertiajs/react'
-import { FC } from 'react'
 
 type TProps = {
   href: string

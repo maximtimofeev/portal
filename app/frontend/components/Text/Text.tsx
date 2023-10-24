@@ -1,10 +1,12 @@
-import { Text as BlueprintText } from '@blueprintjs/core'
 import { FC, PropsWithChildren } from 'react'
+import { Text as BlueprintText } from '@blueprintjs/core'
 import ctl from '@netlify/classnames-template-literals'
+import cn from 'classnames'
 
 export type TextVariant = 'caption' | 'heading' | 'paragraph'
 
 type TProps = {
+  className?: string
   variant?: TextVariant
 } & PropsWithChildren
 
@@ -28,8 +30,12 @@ const TEXT_TAG_MAP: {
   },
 }
 
-const Text: FC<TProps> = ({ variant = 'caption', children }) => {
-  return <BlueprintText {...TEXT_TAG_MAP[variant]}>{children}</BlueprintText>
+const Text: FC<TProps> = ({ className, variant = 'caption', children }) => {
+  return (
+    <BlueprintText tagName={TEXT_TAG_MAP[variant].tagName} className={cn(TEXT_TAG_MAP[variant].className, className)}>
+      {children}
+    </BlueprintText>
+  )
 }
 
 export { Text }
